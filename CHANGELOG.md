@@ -2,7 +2,7 @@
 * 启用Docker
 * 启用Softether
 * 启用SSR-PLUS全部插件
-
+* Cleanup
 
 ## 20200229
 * 官方修复每次重启 Mac 地址变化问题
