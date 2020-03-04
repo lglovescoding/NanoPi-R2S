@@ -10,7 +10,7 @@ CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_ath25 is not set
 # CONFIG_TARGET_ar71xx is not set
 # CONFIG_TARGET_ath79 is not set
-# CONFIG_TARGET_bcm27xx is not set
+# CONFIG_TARGET_brcm2708 is not set
 # CONFIG_TARGET_bcm53xx is not set
 # CONFIG_TARGET_brcm47xx is not set
 # CONFIG_TARGET_brcm63xx is not set
@@ -20,7 +20,6 @@ CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_mpc85xx is not set
 # CONFIG_TARGET_imx6 is not set
 # CONFIG_TARGET_mxs is not set
-# CONFIG_TARGET_ixp4xx is not set
 # CONFIG_TARGET_lantiq is not set
 # CONFIG_TARGET_malta is not set
 # CONFIG_TARGET_pistachio is not set
@@ -42,7 +41,6 @@ CONFIG_HAVE_DOT_CONFIG=y
 # CONFIG_TARGET_samsung is not set
 # CONFIG_TARGET_arc770 is not set
 # CONFIG_TARGET_archs38 is not set
-# CONFIG_TARGET_ar7 is not set
 # CONFIG_TARGET_omap is not set
 # CONFIG_TARGET_uml is not set
 # CONFIG_TARGET_zynq is not set
@@ -58,48 +56,23 @@ CONFIG_DEFAULT_TARGET_OPTIMIZATION="-Os -pipe -mcpu=cortex-a53"
 CONFIG_CPU_TYPE="cortex-a53"
 CONFIG_LINUX_4_14=y
 CONFIG_DEFAULT_base-files=y
-CONFIG_DEFAULT_block-mount=y
 CONFIG_DEFAULT_busybox=y
-CONFIG_DEFAULT_ca-certificates=y
-CONFIG_DEFAULT_coremark=y
-CONFIG_DEFAULT_ddns-scripts_aliyun=y
-CONFIG_DEFAULT_ddns-scripts_dnspod=y
 CONFIG_DEFAULT_default-settings=y
 CONFIG_DEFAULT_dnsmasq-full=y
 CONFIG_DEFAULT_dropbear=y
 CONFIG_DEFAULT_firewall=y
 CONFIG_DEFAULT_fstools=y
+CONFIG_DEFAULT_ip6tables=y
 CONFIG_DEFAULT_iptables=y
 CONFIG_DEFAULT_kmod-ipt-offload=y
-CONFIG_DEFAULT_kmod-ipt-raw=y
-CONFIG_DEFAULT_kmod-nf-nathelper=y
-CONFIG_DEFAULT_kmod-nf-nathelper-extra=y
-CONFIG_DEFAULT_kmod-tcp-bbr=y
 CONFIG_DEFAULT_libc=y
 CONFIG_DEFAULT_libgcc=y
-CONFIG_DEFAULT_libustream-openssl=y
 CONFIG_DEFAULT_logd=y
 CONFIG_DEFAULT_luci=y
-CONFIG_DEFAULT_luci-app-accesscontrol=y
-CONFIG_DEFAULT_luci-app-adbyby-plus=y
-CONFIG_DEFAULT_luci-app-arpbind=y
-CONFIG_DEFAULT_luci-app-autoreboot=y
-CONFIG_DEFAULT_luci-app-ddns=y
-CONFIG_DEFAULT_luci-app-filetransfer=y
-CONFIG_DEFAULT_luci-app-flowoffload=y
-CONFIG_DEFAULT_luci-app-nlbwmon=y
-CONFIG_DEFAULT_luci-app-pptp-server=y
-CONFIG_DEFAULT_luci-app-ramfree=y
-CONFIG_DEFAULT_luci-app-sfe=y
-CONFIG_DEFAULT_luci-app-sqm=y
-CONFIG_DEFAULT_luci-app-ssr-plus=y
-CONFIG_DEFAULT_luci-app-upnp=y
-CONFIG_DEFAULT_luci-app-vlmcsd=y
-CONFIG_DEFAULT_luci-app-vsftpd=y
-CONFIG_DEFAULT_luci-app-wol=y
-CONFIG_DEFAULT_luci-proto-relay=y
 CONFIG_DEFAULT_mtd=y
 CONFIG_DEFAULT_netifd=y
+CONFIG_DEFAULT_odhcp6c=y
+CONFIG_DEFAULT_odhcpd-ipv6only=y
 CONFIG_DEFAULT_opkg=y
 CONFIG_DEFAULT_ppp=y
 CONFIG_DEFAULT_ppp-mod-pppoe=y
@@ -107,9 +80,8 @@ CONFIG_DEFAULT_uci=y
 CONFIG_DEFAULT_uclient-fetch=y
 CONFIG_DEFAULT_urandom-seed=y
 CONFIG_DEFAULT_urngd=y
-CONFIG_DEFAULT_wget=y
 CONFIG_HAS_FPU=y
-# CONFIG_AUDIO_SUPPORT is not set
+CONFIG_AUDIO_SUPPORT=y
 CONFIG_GPIO_SUPPORT=y
 CONFIG_PCI_SUPPORT=y
 CONFIG_PCIE_SUPPORT=y
@@ -158,7 +130,6 @@ CONFIG_TARGET_ROOTFS_PARTSIZE=512
 #
 # Global build settings
 #
-CONFIG_JSON_ADD_IMAGE_INFO=y
 # CONFIG_ALL_NONSHARED is not set
 # CONFIG_ALL_KMODS is not set
 # CONFIG_ALL is not set
@@ -174,6 +145,7 @@ CONFIG_BUILD_PATENTED=y
 # CONFIG_BUILD_NLS is not set
 CONFIG_SHADOW_PASSWORDS=y
 # CONFIG_CLEAN_IPKG is not set
+# CONFIG_IPK_FILES_CHECKSUMS is not set
 # CONFIG_INCLUDE_CONFIG is not set
 # CONFIG_COLLECT_KERNEL_DEBUG is not set
 
@@ -244,9 +216,15 @@ CONFIG_KERNEL_BLK_DEV_THROTTLING=y
 # CONFIG_KERNEL_DEBUG_BLK_CGROUP is not set
 CONFIG_KERNEL_NET_CLS_CGROUP=y
 CONFIG_KERNEL_NETPRIO_CGROUP=y
-# CONFIG_KERNEL_NAMESPACES is not set
-CONFIG_KERNEL_DEVPTS_MULTIPLE_INSTANCES=y
-CONFIG_KERNEL_POSIX_MQUEUE=y
+CONFIG_KERNEL_NAMESPACES=y
+CONFIG_KERNEL_UTS_NS=y
+CONFIG_KERNEL_IPC_NS=y
+CONFIG_KERNEL_USER_NS=y
+CONFIG_KERNEL_PID_NS=y
+CONFIG_KERNEL_NET_NS=y
+# CONFIG_KERNEL_LXC_MISC is not set
+# CONFIG_KERNEL_DEVPTS_MULTIPLE_INSTANCES is not set
+# CONFIG_KERNEL_POSIX_MQUEUE is not set
 # CONFIG_KERNEL_SECCOMP_FILTER is not set
 # CONFIG_KERNEL_SECCOMP is not set
 CONFIG_KERNEL_IP_MROUTE=y
@@ -269,7 +247,7 @@ CONFIG_KERNEL_EXT4_FS_POSIX_ACL=y
 # CONFIG_KERNEL_TMPFS_POSIX_ACL is not set
 # CONFIG_KERNEL_CIFS_ACL is not set
 # CONFIG_KERNEL_HFS_FS_POSIX_ACL is not set
-# CONFIG_KERNEL_HFSPLUG_FS_POSIX_ACL is not set
+# CONFIG_KERNEL_HFSPLUS_FS_POSIX_ACL is not set
 # CONFIG_KERNEL_NFS_ACL_SUPPORT is not set
 # CONFIG_KERNEL_NFS_V3_ACL_SUPPORT is not set
 # CONFIG_KERNEL_NFSD_V2_ACL_SUPPORT is not set
@@ -304,9 +282,7 @@ CONFIG_USE_UCLIBCXX=y
 # Hardening build options
 #
 CONFIG_PKG_CHECK_FORMAT_SECURITY=y
-# CONFIG_PKG_ASLR_PIE_NONE is not set
-CONFIG_PKG_ASLR_PIE_REGULAR=y
-# CONFIG_PKG_ASLR_PIE_ALL is not set
+# CONFIG_PKG_ASLR_PIE is not set
 # CONFIG_PKG_CC_STACKPROTECTOR_NONE is not set
 CONFIG_PKG_CC_STACKPROTECTOR_REGULAR=y
 # CONFIG_KERNEL_CC_STACKPROTECTOR_NONE is not set
@@ -393,6 +369,7 @@ CONFIG_PER_FEED_REPO=y
 CONFIG_FEED_packages=y
 CONFIG_FEED_luci=y
 CONFIG_FEED_routing=y
+CONFIG_FEED_telephony=y
 
 #
 # Base system
@@ -988,10 +965,10 @@ CONFIG_BUSYBOX_DEFAULT_PIVOT_ROOT=y
 # CONFIG_BUSYBOX_DEFAULT_FEATURE_SETPRIV_CAPABILITIES is not set
 # CONFIG_BUSYBOX_DEFAULT_FEATURE_SETPRIV_CAPABILITY_NAMES is not set
 # CONFIG_BUSYBOX_DEFAULT_SETSID is not set
-# CONFIG_BUSYBOX_DEFAULT_SWAPON is not set
-# CONFIG_BUSYBOX_DEFAULT_FEATURE_SWAPON_DISCARD is not set
-# CONFIG_BUSYBOX_DEFAULT_FEATURE_SWAPON_PRI is not set
-# CONFIG_BUSYBOX_DEFAULT_SWAPOFF is not set
+CONFIG_BUSYBOX_DEFAULT_SWAPON=y
+CONFIG_BUSYBOX_DEFAULT_FEATURE_SWAPON_DISCARD=y
+CONFIG_BUSYBOX_DEFAULT_FEATURE_SWAPON_PRI=y
+CONFIG_BUSYBOX_DEFAULT_SWAPOFF=y
 # CONFIG_BUSYBOX_DEFAULT_FEATURE_SWAPONOFF_LABEL is not set
 CONFIG_BUSYBOX_DEFAULT_SWITCH_ROOT=y
 # CONFIG_BUSYBOX_DEFAULT_TASKSET is not set
@@ -1231,7 +1208,7 @@ CONFIG_BUSYBOX_DEFAULT_ROUTE=y
 # CONFIG_BUSYBOX_DEFAULT_FEATURE_TC_INGRESS is not set
 # CONFIG_BUSYBOX_DEFAULT_TCPSVD is not set
 # CONFIG_BUSYBOX_DEFAULT_UDPSVD is not set
-CONFIG_BUSYBOX_DEFAULT_TELNET=y
+# CONFIG_BUSYBOX_DEFAULT_TELNET is not set
 # CONFIG_BUSYBOX_DEFAULT_FEATURE_TELNET_TTYPE is not set
 # CONFIG_BUSYBOX_DEFAULT_FEATURE_TELNET_AUTOLOGIN is not set
 # CONFIG_BUSYBOX_DEFAULT_FEATURE_TELNET_WIDTH is not set
@@ -1454,6 +1431,7 @@ CONFIG_PACKAGE_dnsmasq_full_ipset=y
 # CONFIG_PACKAGE_dnsmasq_full_conntrack is not set
 # CONFIG_PACKAGE_dnsmasq_full_noid is not set
 # CONFIG_PACKAGE_dnsmasq_full_broken_rtc is not set
+CONFIG_PACKAGE_dnsmasq_full_tftp=y
 CONFIG_PACKAGE_dropbear=y
 
 #
@@ -1462,6 +1440,7 @@ CONFIG_PACKAGE_dropbear=y
 CONFIG_DROPBEAR_CURVE25519=y
 # CONFIG_DROPBEAR_ECC is not set
 # CONFIG_DROPBEAR_ZLIB is not set
+CONFIG_DROPBEAR_DBCLIENT=y
 # CONFIG_PACKAGE_ead is not set
 CONFIG_PACKAGE_firewall=y
 CONFIG_PACKAGE_fstools=y
@@ -1491,6 +1470,7 @@ CONFIG_PACKAGE_procd=y
 #
 # CONFIG_PROCD_SHOW_BOOT is not set
 # CONFIG_PROCD_ZRAM_TMPFS is not set
+# CONFIG_PACKAGE_procd-ujail is not set
 CONFIG_PACKAGE_qos-scripts=y
 CONFIG_PACKAGE_resolveip=y
 CONFIG_PACKAGE_rpcd=y
@@ -1577,6 +1557,7 @@ CONFIG_PACKAGE_netdata=y
 # CONFIG_PACKAGE_pkg-config is not set
 # CONFIG_PACKAGE_trace-cmd is not set
 # CONFIG_PACKAGE_trace-cmd-extra is not set
+# CONFIG_PACKAGE_valgrind is not set
 
 #
 # Extra packages
@@ -1585,14 +1566,13 @@ CONFIG_PACKAGE_netdata=y
 # CONFIG_PACKAGE_autosamba is not set
 # CONFIG_PACKAGE_ipv6helper is not set
 # CONFIG_PACKAGE_k3wifi is not set
-CONFIG_PACKAGE_wireguard-tools=y
 
 #
 # Firmware
 #
 
 #
-# ath10k IPQ4019 Boarddata
+# ath10k Board-Specific Overrides
 #
 # CONFIG_PACKAGE_aircard-pcmcia-firmware is not set
 # CONFIG_PACKAGE_amdgpu-firmware is not set
@@ -1620,37 +1600,17 @@ CONFIG_PACKAGE_ath6k-firmware=y
 CONFIG_PACKAGE_ath9k-htc-firmware=y
 # CONFIG_PACKAGE_b43legacy-firmware is not set
 # CONFIG_PACKAGE_bnx2-firmware is not set
-# CONFIG_PACKAGE_bnx2x-firmware is not set
 # CONFIG_PACKAGE_brcmfmac-firmware-4329-sdio is not set
 # CONFIG_PACKAGE_brcmfmac-firmware-43362-sdio is not set
 CONFIG_PACKAGE_brcmfmac-firmware-43430-sdio=y
-# CONFIG_PACKAGE_brcmfmac-firmware-43430-sdio-rpi-3b is not set
-# CONFIG_PACKAGE_brcmfmac-firmware-43430-sdio-rpi-zero-w is not set
 # CONFIG_PACKAGE_brcmfmac-firmware-43430a0-sdio is not set
 # CONFIG_PACKAGE_brcmfmac-firmware-43455-sdio is not set
-# CONFIG_PACKAGE_brcmfmac-firmware-43455-sdio-rpi-3b-plus is not set
-# CONFIG_PACKAGE_brcmfmac-firmware-43455-sdio-rpi-4b is not set
 # CONFIG_PACKAGE_brcmfmac-firmware-43602a1-pcie is not set
 # CONFIG_PACKAGE_brcmfmac-firmware-4366b1-pcie is not set
 # CONFIG_PACKAGE_brcmfmac-firmware-4366c0-pcie is not set
 CONFIG_PACKAGE_brcmfmac-firmware-usb=y
 # CONFIG_PACKAGE_brcmsmac-firmware is not set
 CONFIG_PACKAGE_carl9170-firmware=y
-# CONFIG_PACKAGE_cypress-firmware-43012-sdio is not set
-# CONFIG_PACKAGE_cypress-firmware-43340-sdio is not set
-# CONFIG_PACKAGE_cypress-firmware-43362-sdio is not set
-# CONFIG_PACKAGE_cypress-firmware-4339-sdio is not set
-# CONFIG_PACKAGE_cypress-firmware-43430-sdio is not set
-# CONFIG_PACKAGE_cypress-firmware-43455-sdio is not set
-# CONFIG_PACKAGE_cypress-firmware-4354-sdio is not set
-# CONFIG_PACKAGE_cypress-firmware-4356-pcie is not set
-# CONFIG_PACKAGE_cypress-firmware-4356-sdio is not set
-# CONFIG_PACKAGE_cypress-firmware-43570-pcie is not set
-# CONFIG_PACKAGE_cypress-firmware-4359-pcie is not set
-# CONFIG_PACKAGE_cypress-firmware-4359-sdio is not set
-# CONFIG_PACKAGE_cypress-firmware-4373-sdio is not set
-# CONFIG_PACKAGE_cypress-firmware-4373-usb is not set
-# CONFIG_PACKAGE_cypress-firmware-89459-pcie is not set
 # CONFIG_PACKAGE_e100-firmware is not set
 CONFIG_PACKAGE_edgeport-firmware=y
 # CONFIG_PACKAGE_ibt-firmware is not set
@@ -1681,7 +1641,6 @@ CONFIG_PACKAGE_edgeport-firmware=y
 CONFIG_PACKAGE_libertas-spi-firmware=y
 CONFIG_PACKAGE_libertas-usb-firmware=y
 CONFIG_PACKAGE_mt7601u-firmware=y
-# CONFIG_PACKAGE_mt7622bt-firmware is not set
 # CONFIG_PACKAGE_mwifiex-pcie-firmware is not set
 # CONFIG_PACKAGE_mwifiex-sdio-firmware is not set
 CONFIG_PACKAGE_mwl8k-firmware=y
@@ -1706,8 +1665,6 @@ CONFIG_PACKAGE_rtl8192su-firmware=y
 # CONFIG_PACKAGE_rtl8723au-firmware is not set
 # CONFIG_PACKAGE_rtl8723bu-firmware is not set
 CONFIG_PACKAGE_rtl8821ae-firmware=y
-# CONFIG_PACKAGE_rtl8822be-firmware is not set
-# CONFIG_PACKAGE_rtl8822ce-firmware is not set
 CONFIG_PACKAGE_ti-3410-firmware=y
 CONFIG_PACKAGE_ti-5052-firmware=y
 CONFIG_PACKAGE_wireless-regdb=y
@@ -1756,7 +1713,6 @@ CONFIG_PACKAGE_wl18xx-firmware=y
 # CONFIG_PACKAGE_kmod-block2mtd is not set
 CONFIG_PACKAGE_kmod-dax=y
 CONFIG_PACKAGE_kmod-dm=y
-# CONFIG_PACKAGE_kmod-dm-raid is not set
 # CONFIG_PACKAGE_kmod-loop is not set
 # CONFIG_PACKAGE_kmod-md-mod is not set
 # CONFIG_PACKAGE_kmod-nbd is not set
@@ -1775,7 +1731,6 @@ CONFIG_PACKAGE_kmod-dm=y
 #
 CONFIG_PACKAGE_kmod-crypto-acompress=y
 CONFIG_PACKAGE_kmod-crypto-aead=y
-CONFIG_PACKAGE_kmod-crypto-arc4=y
 CONFIG_PACKAGE_kmod-crypto-authenc=y
 CONFIG_PACKAGE_kmod-crypto-cbc=y
 # CONFIG_PACKAGE_kmod-crypto-ccm is not set
@@ -2047,9 +2002,9 @@ CONFIG_PACKAGE_kmod-nfnetlink=y
 # CONFIG_PACKAGE_kmod-nfnetlink-queue is not set
 # CONFIG_PACKAGE_kmod-nft-arp is not set
 # CONFIG_PACKAGE_kmod-nft-bridge is not set
-# CONFIG_PACKAGE_kmod-nft-core is not set
+CONFIG_PACKAGE_kmod-nft-core=y
 # CONFIG_PACKAGE_kmod-nft-fib is not set
-# CONFIG_PACKAGE_kmod-nft-nat is not set
+CONFIG_PACKAGE_kmod-nft-nat=y
 # CONFIG_PACKAGE_kmod-nft-nat6 is not set
 # CONFIG_PACKAGE_kmod-nft-netdev is not set
 CONFIG_PACKAGE_kmod-nft-offload=y
@@ -2060,7 +2015,6 @@ CONFIG_PACKAGE_kmod-nft-offload=y
 # CONFIG_PACKAGE_kmod-3c59x is not set
 # CONFIG_PACKAGE_kmod-8139cp is not set
 # CONFIG_PACKAGE_kmod-8139too is not set
-# CONFIG_PACKAGE_kmod-alx is not set
 # CONFIG_PACKAGE_kmod-atl1 is not set
 # CONFIG_PACKAGE_kmod-atl1c is not set
 # CONFIG_PACKAGE_kmod-atl1e is not set
@@ -2068,7 +2022,6 @@ CONFIG_PACKAGE_kmod-nft-offload=y
 # CONFIG_PACKAGE_kmod-b44 is not set
 # CONFIG_PACKAGE_kmod-be2net is not set
 # CONFIG_PACKAGE_kmod-bnx2 is not set
-# CONFIG_PACKAGE_kmod-bnx2x is not set
 # CONFIG_PACKAGE_kmod-dm9000 is not set
 CONFIG_PACKAGE_kmod-dummy=y
 # CONFIG_PACKAGE_kmod-e100 is not set
@@ -2080,8 +2033,6 @@ CONFIG_PACKAGE_kmod-dummy=y
 # CONFIG_PACKAGE_kmod-gigaset is not set
 # CONFIG_PACKAGE_kmod-hfcmulti is not set
 # CONFIG_PACKAGE_kmod-hfcpci is not set
-# CONFIG_PACKAGE_kmod-i40e is not set
-# CONFIG_PACKAGE_kmod-i40evf is not set
 CONFIG_PACKAGE_kmod-ifb=y
 # CONFIG_PACKAGE_kmod-igb is not set
 # CONFIG_PACKAGE_kmod-ixgbe is not set
@@ -2117,6 +2068,7 @@ CONFIG_PACKAGE_kmod-mii=y
 # CONFIG_PACKAGE_kmod-switch-rtl8367b is not set
 # CONFIG_PACKAGE_kmod-tg3 is not set
 # CONFIG_PACKAGE_kmod-tulip is not set
+# CONFIG_PACKAGE_kmod-usb-net-rtl8152 is not set
 # CONFIG_PACKAGE_kmod-via-rhine is not set
 # CONFIG_PACKAGE_kmod-via-velocity is not set
 # CONFIG_PACKAGE_kmod-vmxnet3 is not set
@@ -2161,7 +2113,6 @@ CONFIG_PACKAGE_kmod-l2tp=y
 # CONFIG_PACKAGE_kmod-nat46 is not set
 # CONFIG_PACKAGE_kmod-netem is not set
 # CONFIG_PACKAGE_kmod-nlmon is not set
-# CONFIG_PACKAGE_kmod-nsh is not set
 # CONFIG_PACKAGE_kmod-openvswitch is not set
 # CONFIG_PACKAGE_kmod-openvswitch-geneve is not set
 # CONFIG_PACKAGE_kmod-openvswitch-geneve-intree is not set
@@ -2238,7 +2189,6 @@ CONFIG_PACKAGE_kmod-mmc=y
 # CONFIG_PACKAGE_kmod-mtdram is not set
 # CONFIG_PACKAGE_kmod-mtdtests is not set
 # CONFIG_PACKAGE_kmod-parport-pc is not set
-# CONFIG_PACKAGE_kmod-pinctrl-sx150x is not set
 # CONFIG_PACKAGE_kmod-ppdev is not set
 # CONFIG_PACKAGE_kmod-pps is not set
 # CONFIG_PACKAGE_kmod-pps-gpio is not set
@@ -2252,11 +2202,9 @@ CONFIG_PACKAGE_kmod-mmc=y
 # CONFIG_PACKAGE_kmod-rtc-em3027 is not set
 # CONFIG_PACKAGE_kmod-rtc-isl1208 is not set
 # CONFIG_PACKAGE_kmod-rtc-pcf2123 is not set
-# CONFIG_PACKAGE_kmod-rtc-pcf2127 is not set
 # CONFIG_PACKAGE_kmod-rtc-pcf8563 is not set
 # CONFIG_PACKAGE_kmod-rtc-pt7c4338 is not set
 # CONFIG_PACKAGE_kmod-rtc-rs5c372a is not set
-# CONFIG_PACKAGE_kmod-rtc-rx8025 is not set
 # CONFIG_PACKAGE_kmod-sdhci is not set
 # CONFIG_PACKAGE_kmod-serial-8250 is not set
 # CONFIG_PACKAGE_kmod-serial-8250-exar is not set
@@ -2319,7 +2267,6 @@ CONFIG_PACKAGE_kmod-usb-net-cdc-ncm=y
 CONFIG_PACKAGE_kmod-usb-net-qmi-wwan=y
 # CONFIG_PACKAGE_kmod-usb-net-rndis is not set
 # CONFIG_PACKAGE_kmod-usb-net-rtl8150 is not set
-# CONFIG_PACKAGE_kmod-usb-net-rtl8152 is not set
 # CONFIG_PACKAGE_kmod-usb-net-sierrawireless is not set
 # CONFIG_PACKAGE_kmod-usb-net-smsc95xx is not set
 # CONFIG_PACKAGE_kmod-usb-net-sr9700 is not set
@@ -2354,6 +2301,7 @@ CONFIG_PACKAGE_kmod-usb-wdm=y
 #
 # Voice over IP
 #
+# CONFIG_PACKAGE_kmod-dahdi is not set
 
 #
 # W1 support
@@ -2538,20 +2486,17 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # Node.js
 #
 # CONFIG_PACKAGE_node is not set
-
-#
-# Module Selection
-#
-# CONFIG_NODEJS_ICU is not set
 # CONFIG_PACKAGE_node-arduino-firmata is not set
 # CONFIG_PACKAGE_node-cylon is not set
 # CONFIG_PACKAGE_node-cylon-firmata is not set
 # CONFIG_PACKAGE_node-cylon-gpio is not set
 # CONFIG_PACKAGE_node-cylon-i2c is not set
 # CONFIG_PACKAGE_node-hid is not set
-# CONFIG_PACKAGE_node-mozilla-iot-gateway is not set
+# CONFIG_PACKAGE_node-homebridge is not set
+# CONFIG_PACKAGE_node-javascript-obfuscator is not set
 # CONFIG_PACKAGE_node-npm is not set
 # CONFIG_PACKAGE_node-serialport is not set
+# CONFIG_PACKAGE_node-serialport-bindings is not set
 
 #
 # PHP
@@ -2569,7 +2514,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_gunicorn is not set
 # CONFIG_PACKAGE_micropython is not set
 # CONFIG_PACKAGE_micropython-lib is not set
-# CONFIG_PACKAGE_python is not set
+CONFIG_PACKAGE_python=y
 # CONFIG_PACKAGE_python-asn1crypto is not set
 # CONFIG_PACKAGE_python-astral is not set
 # CONFIG_PACKAGE_python-astral-src is not set
@@ -2579,7 +2524,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python-automat-src is not set
 # CONFIG_PACKAGE_python-awscli is not set
 # CONFIG_PACKAGE_python-awscli-src is not set
-# CONFIG_PACKAGE_python-base is not set
+CONFIG_PACKAGE_python-base=y
 # CONFIG_PACKAGE_python-base-src is not set
 # CONFIG_PACKAGE_python-bcrypt is not set
 # CONFIG_PACKAGE_python-bcrypt-src is not set
@@ -2591,11 +2536,11 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python-cffi-src is not set
 # CONFIG_PACKAGE_python-chardet is not set
 # CONFIG_PACKAGE_python-chardet-src is not set
-# CONFIG_PACKAGE_python-codecs is not set
+CONFIG_PACKAGE_python-codecs=y
 # CONFIG_PACKAGE_python-codecs-src is not set
 # CONFIG_PACKAGE_python-colorama is not set
 # CONFIG_PACKAGE_python-colorama-src is not set
-# CONFIG_PACKAGE_python-compiler is not set
+CONFIG_PACKAGE_python-compiler=y
 # CONFIG_PACKAGE_python-compiler-src is not set
 # CONFIG_PACKAGE_python-constantly is not set
 # CONFIG_PACKAGE_python-constantly-src is not set
@@ -2608,21 +2553,21 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python-cryptodomex-src is not set
 # CONFIG_PACKAGE_python-cryptography is not set
 # CONFIG_PACKAGE_python-cryptography-src is not set
-# CONFIG_PACKAGE_python-ctypes is not set
+CONFIG_PACKAGE_python-ctypes=y
 # CONFIG_PACKAGE_python-ctypes-src is not set
 # CONFIG_PACKAGE_python-curl is not set
 # CONFIG_PACKAGE_python-curl-src is not set
 # CONFIG_PACKAGE_python-dateutil is not set
 # CONFIG_PACKAGE_python-dateutil-src is not set
-# CONFIG_PACKAGE_python-db is not set
+CONFIG_PACKAGE_python-db=y
 # CONFIG_PACKAGE_python-db-src is not set
-# CONFIG_PACKAGE_python-decimal is not set
+CONFIG_PACKAGE_python-decimal=y
 # CONFIG_PACKAGE_python-decimal-src is not set
 # CONFIG_PACKAGE_python-defusedxml is not set
 # CONFIG_PACKAGE_python-defusedxml-src is not set
 # CONFIG_PACKAGE_python-dev is not set
 # CONFIG_PACKAGE_python-dev-src is not set
-# CONFIG_PACKAGE_python-distutils is not set
+CONFIG_PACKAGE_python-distutils=y
 # CONFIG_PACKAGE_python-distutils-src is not set
 # CONFIG_PACKAGE_python-django is not set
 # CONFIG_PACKAGE_python-dns is not set
@@ -2631,7 +2576,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python-docutils-src is not set
 # CONFIG_PACKAGE_python-dpkt is not set
 # CONFIG_PACKAGE_python-egenix-mx-base is not set
-# CONFIG_PACKAGE_python-email is not set
+CONFIG_PACKAGE_python-email=y
 # CONFIG_PACKAGE_python-email-src is not set
 # CONFIG_PACKAGE_python-enum34 is not set
 # CONFIG_PACKAGE_python-enum34-src is not set
@@ -2642,7 +2587,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python-flup-src is not set
 # CONFIG_PACKAGE_python-futures is not set
 # CONFIG_PACKAGE_python-futures-src is not set
-# CONFIG_PACKAGE_python-gdbm is not set
+CONFIG_PACKAGE_python-gdbm=y
 # CONFIG_PACKAGE_python-gdbm-src is not set
 # CONFIG_PACKAGE_python-gmpy2 is not set
 # CONFIG_PACKAGE_python-gmpy2-src is not set
@@ -2662,26 +2607,26 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python-ldap is not set
 # CONFIG_PACKAGE_python-lib2to3 is not set
 # CONFIG_PACKAGE_python-lib2to3-src is not set
-# CONFIG_PACKAGE_python-light is not set
+CONFIG_PACKAGE_python-light=y
 
 #
 # Configuration
 #
 # CONFIG_PYTHON_BLUETOOTH_SUPPORT is not set
 # CONFIG_PACKAGE_python-light-src is not set
-# CONFIG_PACKAGE_python-logging is not set
+CONFIG_PACKAGE_python-logging=y
 # CONFIG_PACKAGE_python-logging-src is not set
 # CONFIG_PACKAGE_python-lxml is not set
-# CONFIG_PACKAGE_python-multiprocessing is not set
+CONFIG_PACKAGE_python-multiprocessing=y
 # CONFIG_PACKAGE_python-multiprocessing-src is not set
 # CONFIG_PACKAGE_python-mysql is not set
-# CONFIG_PACKAGE_python-ncurses is not set
+CONFIG_PACKAGE_python-ncurses=y
 # CONFIG_PACKAGE_python-ncurses-src is not set
 # CONFIG_PACKAGE_python-oauthlib is not set
 # CONFIG_PACKAGE_python-oauthlib-src is not set
 # CONFIG_PACKAGE_python-openpyxl is not set
 # CONFIG_PACKAGE_python-openpyxl-src is not set
-# CONFIG_PACKAGE_python-openssl is not set
+CONFIG_PACKAGE_python-openssl=y
 # CONFIG_PACKAGE_python-openssl-src is not set
 # CONFIG_PACKAGE_python-packages is not set
 # CONFIG_PACKAGE_python-parsley is not set
@@ -2691,8 +2636,8 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python-pcapy is not set
 # CONFIG_PACKAGE_python-pillow is not set
 # CONFIG_PACKAGE_python-pillow-src is not set
-# CONFIG_PACKAGE_python-pip is not set
-# CONFIG_PACKAGE_python-pip-conf is not set
+CONFIG_PACKAGE_python-pip=y
+CONFIG_PACKAGE_python-pip-conf=y
 # CONFIG_PACKAGE_python-pip-src is not set
 # CONFIG_PACKAGE_python-ply is not set
 # CONFIG_PACKAGE_python-ply-src is not set
@@ -2703,7 +2648,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python-pyasn1-src is not set
 # CONFIG_PACKAGE_python-pycparser is not set
 # CONFIG_PACKAGE_python-pycparser-src is not set
-# CONFIG_PACKAGE_python-pydoc is not set
+CONFIG_PACKAGE_python-pydoc=y
 # CONFIG_PACKAGE_python-pydoc-src is not set
 # CONFIG_PACKAGE_python-pyjwt is not set
 # CONFIG_PACKAGE_python-pyjwt-src is not set
@@ -2732,14 +2677,14 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python-s3transfer-src is not set
 # CONFIG_PACKAGE_python-service-identity is not set
 # CONFIG_PACKAGE_python-service-identity-src is not set
-# CONFIG_PACKAGE_python-setuptools is not set
+CONFIG_PACKAGE_python-setuptools=y
 # CONFIG_PACKAGE_python-setuptools-src is not set
 # CONFIG_PACKAGE_python-simplejson is not set
 # CONFIG_PACKAGE_python-simplejson-src is not set
 # CONFIG_PACKAGE_python-six is not set
 # CONFIG_PACKAGE_python-six-src is not set
 # CONFIG_PACKAGE_python-smbus is not set
-# CONFIG_PACKAGE_python-sqlite3 is not set
+CONFIG_PACKAGE_python-sqlite3=y
 # CONFIG_PACKAGE_python-sqlite3-src is not set
 # CONFIG_PACKAGE_python-text-unidecode is not set
 # CONFIG_PACKAGE_python-text-unidecode-src is not set
@@ -2747,7 +2692,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python-twisted-src is not set
 # CONFIG_PACKAGE_python-txsocksx is not set
 # CONFIG_PACKAGE_python-txsocksx-src is not set
-# CONFIG_PACKAGE_python-unittest is not set
+CONFIG_PACKAGE_python-unittest=y
 # CONFIG_PACKAGE_python-unittest-src is not set
 # CONFIG_PACKAGE_python-urllib3 is not set
 # CONFIG_PACKAGE_python-urllib3-src is not set
@@ -2755,13 +2700,13 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python-vobject-src is not set
 # CONFIG_PACKAGE_python-voluptuous is not set
 # CONFIG_PACKAGE_python-voluptuous-src is not set
-# CONFIG_PACKAGE_python-xml is not set
+CONFIG_PACKAGE_python-xml=y
 # CONFIG_PACKAGE_python-xml-src is not set
 # CONFIG_PACKAGE_python-yaml is not set
 # CONFIG_PACKAGE_python-yaml-src is not set
 # CONFIG_PACKAGE_python-zope-interface is not set
 # CONFIG_PACKAGE_python-zope-interface-src is not set
-# CONFIG_PACKAGE_python3 is not set
+CONFIG_PACKAGE_python3=y
 # CONFIG_PACKAGE_python3-aiohttp is not set
 # CONFIG_PACKAGE_python3-aiohttp-cors is not set
 # CONFIG_PACKAGE_python3-aiohttp-cors-src is not set
@@ -2773,7 +2718,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-astral-src is not set
 # CONFIG_PACKAGE_python3-async-timeout is not set
 # CONFIG_PACKAGE_python3-async-timeout-src is not set
-# CONFIG_PACKAGE_python3-asyncio is not set
+CONFIG_PACKAGE_python3-asyncio=y
 # CONFIG_PACKAGE_python3-asyncio-src is not set
 # CONFIG_PACKAGE_python3-attrs is not set
 # CONFIG_PACKAGE_python3-attrs-src is not set
@@ -2781,7 +2726,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-automat-src is not set
 # CONFIG_PACKAGE_python3-awscli is not set
 # CONFIG_PACKAGE_python3-awscli-src is not set
-# CONFIG_PACKAGE_python3-base is not set
+CONFIG_PACKAGE_python3-base=y
 # CONFIG_PACKAGE_python3-base-src is not set
 # CONFIG_PACKAGE_python3-bcrypt is not set
 # CONFIG_PACKAGE_python3-bcrypt-src is not set
@@ -2799,16 +2744,16 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-certifi-src is not set
 # CONFIG_PACKAGE_python3-cffi is not set
 # CONFIG_PACKAGE_python3-cffi-src is not set
-# CONFIG_PACKAGE_python3-cgi is not set
+CONFIG_PACKAGE_python3-cgi=y
 # CONFIG_PACKAGE_python3-cgi-src is not set
-# CONFIG_PACKAGE_python3-cgitb is not set
+CONFIG_PACKAGE_python3-cgitb=y
 # CONFIG_PACKAGE_python3-cgitb-src is not set
 # CONFIG_PACKAGE_python3-chardet is not set
 # CONFIG_PACKAGE_python3-chardet-src is not set
 # CONFIG_PACKAGE_python3-click is not set
 # CONFIG_PACKAGE_python3-click-log is not set
 # CONFIG_PACKAGE_python3-click-log-src is not set
-# CONFIG_PACKAGE_python3-codecs is not set
+CONFIG_PACKAGE_python3-codecs=y
 # CONFIG_PACKAGE_python3-codecs-src is not set
 # CONFIG_PACKAGE_python3-colorama is not set
 # CONFIG_PACKAGE_python3-colorama-src is not set
@@ -2824,15 +2769,15 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-cryptodomex-src is not set
 # CONFIG_PACKAGE_python3-cryptography is not set
 # CONFIG_PACKAGE_python3-cryptography-src is not set
-# CONFIG_PACKAGE_python3-ctypes is not set
+CONFIG_PACKAGE_python3-ctypes=y
 # CONFIG_PACKAGE_python3-ctypes-src is not set
 # CONFIG_PACKAGE_python3-curl is not set
 # CONFIG_PACKAGE_python3-curl-src is not set
 # CONFIG_PACKAGE_python3-dateutil is not set
 # CONFIG_PACKAGE_python3-dateutil-src is not set
-# CONFIG_PACKAGE_python3-dbm is not set
+CONFIG_PACKAGE_python3-dbm=y
 # CONFIG_PACKAGE_python3-dbm-src is not set
-# CONFIG_PACKAGE_python3-decimal is not set
+CONFIG_PACKAGE_python3-decimal=y
 # CONFIG_PACKAGE_python3-decimal-src is not set
 # CONFIG_PACKAGE_python3-decorator is not set
 # CONFIG_PACKAGE_python3-decorator-src is not set
@@ -2840,14 +2785,14 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-defusedxml-src is not set
 # CONFIG_PACKAGE_python3-dev is not set
 # CONFIG_PACKAGE_python3-dev-src is not set
-# CONFIG_PACKAGE_python3-distutils is not set
+CONFIG_PACKAGE_python3-distutils=y
 # CONFIG_PACKAGE_python3-distutils-src is not set
 # CONFIG_PACKAGE_python3-django is not set
 # CONFIG_PACKAGE_python3-dns is not set
 # CONFIG_PACKAGE_python3-dns-src is not set
 # CONFIG_PACKAGE_python3-docutils is not set
 # CONFIG_PACKAGE_python3-docutils-src is not set
-# CONFIG_PACKAGE_python3-email is not set
+CONFIG_PACKAGE_python3-email=y
 # CONFIG_PACKAGE_python3-email-src is not set
 # CONFIG_PACKAGE_python3-et_xmlfile is not set
 # CONFIG_PACKAGE_python3-et_xmlfile-src is not set
@@ -2857,7 +2802,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-flask-login-src is not set
 # CONFIG_PACKAGE_python3-flup is not set
 # CONFIG_PACKAGE_python3-flup-src is not set
-# CONFIG_PACKAGE_python3-gdbm is not set
+CONFIG_PACKAGE_python3-gdbm=y
 # CONFIG_PACKAGE_python3-gdbm-src is not set
 # CONFIG_PACKAGE_python3-gmpy2 is not set
 # CONFIG_PACKAGE_python3-gmpy2-src is not set
@@ -2887,17 +2832,17 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-jsonpath-ng-src is not set
 # CONFIG_PACKAGE_python3-lib2to3 is not set
 # CONFIG_PACKAGE_python3-lib2to3-src is not set
-# CONFIG_PACKAGE_python3-light is not set
+CONFIG_PACKAGE_python3-light=y
 
 #
 # Configuration
 #
 # CONFIG_PYTHON3_BLUETOOTH_SUPPORT is not set
 # CONFIG_PACKAGE_python3-light-src is not set
-# CONFIG_PACKAGE_python3-logging is not set
+CONFIG_PACKAGE_python3-logging=y
 # CONFIG_PACKAGE_python3-logging-src is not set
 # CONFIG_PACKAGE_python3-lxml is not set
-# CONFIG_PACKAGE_python3-lzma is not set
+CONFIG_PACKAGE_python3-lzma=y
 # CONFIG_PACKAGE_python3-lzma-src is not set
 # CONFIG_PACKAGE_python3-markdown is not set
 # CONFIG_PACKAGE_python3-markdown-src is not set
@@ -2906,10 +2851,10 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-maxminddb-src is not set
 # CONFIG_PACKAGE_python3-multidict is not set
 # CONFIG_PACKAGE_python3-multidict-src is not set
-# CONFIG_PACKAGE_python3-multiprocessing is not set
+CONFIG_PACKAGE_python3-multiprocessing=y
 # CONFIG_PACKAGE_python3-multiprocessing-src is not set
 # CONFIG_PACKAGE_python3-mysql is not set
-# CONFIG_PACKAGE_python3-ncurses is not set
+CONFIG_PACKAGE_python3-ncurses=y
 # CONFIG_PACKAGE_python3-ncurses-src is not set
 # CONFIG_PACKAGE_python3-netdisco is not set
 # CONFIG_PACKAGE_python3-netdisco-src is not set
@@ -2919,7 +2864,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-oauthlib-src is not set
 # CONFIG_PACKAGE_python3-openpyxl is not set
 # CONFIG_PACKAGE_python3-openpyxl-src is not set
-# CONFIG_PACKAGE_python3-openssl is not set
+CONFIG_PACKAGE_python3-openssl=y
 # CONFIG_PACKAGE_python3-openssl-src is not set
 # CONFIG_PACKAGE_python3-packages is not set
 # CONFIG_PACKAGE_python3-paho-mqtt is not set
@@ -2930,7 +2875,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-passlib-src is not set
 # CONFIG_PACKAGE_python3-pillow is not set
 # CONFIG_PACKAGE_python3-pillow-src is not set
-# CONFIG_PACKAGE_python3-pip is not set
+CONFIG_PACKAGE_python3-pip=y
 # CONFIG_PACKAGE_python3-pip-src is not set
 # CONFIG_PACKAGE_python3-ply is not set
 # CONFIG_PACKAGE_python3-ply-src is not set
@@ -2940,7 +2885,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-pyasn1-src is not set
 # CONFIG_PACKAGE_python3-pycparser is not set
 # CONFIG_PACKAGE_python3-pycparser-src is not set
-# CONFIG_PACKAGE_python3-pydoc is not set
+CONFIG_PACKAGE_python3-pydoc=y
 # CONFIG_PACKAGE_python3-pydoc-src is not set
 # CONFIG_PACKAGE_python3-pyjwt is not set
 # CONFIG_PACKAGE_python3-pyjwt-src is not set
@@ -2977,7 +2922,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-sentry-sdk-src is not set
 # CONFIG_PACKAGE_python3-service-identity is not set
 # CONFIG_PACKAGE_python3-service-identity-src is not set
-# CONFIG_PACKAGE_python3-setuptools is not set
+CONFIG_PACKAGE_python3-setuptools=y
 # CONFIG_PACKAGE_python3-setuptools-src is not set
 # CONFIG_PACKAGE_python3-simplejson is not set
 # CONFIG_PACKAGE_python3-simplejson-src is not set
@@ -2988,7 +2933,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-smbus is not set
 # CONFIG_PACKAGE_python3-sqlalchemy is not set
 # CONFIG_PACKAGE_python3-sqlalchemy-src is not set
-# CONFIG_PACKAGE_python3-sqlite3 is not set
+CONFIG_PACKAGE_python3-sqlite3=y
 # CONFIG_PACKAGE_python3-sqlite3-src is not set
 # CONFIG_PACKAGE_python3-text-unidecode is not set
 # CONFIG_PACKAGE_python3-text-unidecode-src is not set
@@ -2996,9 +2941,9 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-twisted-src is not set
 # CONFIG_PACKAGE_python3-unidecode is not set
 # CONFIG_PACKAGE_python3-unidecode-src is not set
-# CONFIG_PACKAGE_python3-unittest is not set
+CONFIG_PACKAGE_python3-unittest=y
 # CONFIG_PACKAGE_python3-unittest-src is not set
-# CONFIG_PACKAGE_python3-urllib is not set
+CONFIG_PACKAGE_python3-urllib=y
 # CONFIG_PACKAGE_python3-urllib-src is not set
 # CONFIG_PACKAGE_python3-urllib3 is not set
 # CONFIG_PACKAGE_python3-urllib3-src is not set
@@ -3009,7 +2954,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # CONFIG_PACKAGE_python3-voluptuous-serialize-src is not set
 # CONFIG_PACKAGE_python3-voluptuous-src is not set
 # CONFIG_PACKAGE_python3-werkzeug is not set
-# CONFIG_PACKAGE_python3-xml is not set
+CONFIG_PACKAGE_python3-xml=y
 # CONFIG_PACKAGE_python3-xml-src is not set
 # CONFIG_PACKAGE_python3-xmltodict is not set
 # CONFIG_PACKAGE_python3-xmltodict-src is not set
@@ -3042,7 +2987,7 @@ CONFIG_PACKAGE_luci-lib-fs=y
 # Compression
 #
 CONFIG_PACKAGE_libbz2=y
-# CONFIG_PACKAGE_liblzma is not set
+CONFIG_PACKAGE_liblzma=y
 # CONFIG_PACKAGE_libunrar is not set
 # CONFIG_PACKAGE_libzstd is not set
 CONFIG_ZSTD_OPTIMIZE_O3=y
@@ -3236,6 +3181,7 @@ CONFIG_GNUTLS_ANON=y
 # CONFIG_GNUTLS_PKCS11 is not set
 # CONFIG_GNUTLS_EXT_LIBTASN1 is not set
 CONFIG_PACKAGE_libmbedtls=y
+# CONFIG_LIBMBEDTLS_DEBUG_C is not set
 CONFIG_PACKAGE_libopenssl=y
 
 #
@@ -3287,7 +3233,6 @@ CONFIG_OPENSSL_ENGINE_BUILTIN=y
 # CONFIG_OPENSSL_ENGINE_BUILTIN_DEVCRYPTO is not set
 # CONFIG_OPENSSL_WITH_GOST is not set
 CONFIG_PACKAGE_libopenssl-conf=y
-# CONFIG_PACKAGE_libopenssl-devcrypto is not set
 # CONFIG_PACKAGE_libpolarssl is not set
 # CONFIG_PACKAGE_libwolfssl is not set
 
@@ -3295,6 +3240,33 @@ CONFIG_PACKAGE_libopenssl-conf=y
 # Sound
 #
 # CONFIG_PACKAGE_liblo is not set
+
+#
+# Telephony
+#
+# CONFIG_PACKAGE_bcg729 is not set
+# CONFIG_PACKAGE_dahdi-tools-libtonezone is not set
+# CONFIG_PACKAGE_gsmlib is not set
+# CONFIG_PACKAGE_libctb is not set
+# CONFIG_PACKAGE_libfreetdm-stable is not set
+# CONFIG_PACKAGE_libiksemel is not set
+# CONFIG_PACKAGE_libks is not set
+# CONFIG_PACKAGE_libosip2 is not set
+# CONFIG_PACKAGE_libpj is not set
+# CONFIG_PACKAGE_libpjlib-util is not set
+# CONFIG_PACKAGE_libpjmedia is not set
+# CONFIG_PACKAGE_libpjnath is not set
+# CONFIG_PACKAGE_libpjsip is not set
+# CONFIG_PACKAGE_libpjsip-simple is not set
+# CONFIG_PACKAGE_libpjsip-ua is not set
+# CONFIG_PACKAGE_libpjsua is not set
+# CONFIG_PACKAGE_libpjsua2 is not set
+# CONFIG_PACKAGE_libre is not set
+# CONFIG_PACKAGE_librem is not set
+# CONFIG_PACKAGE_libspandsp is not set
+# CONFIG_PACKAGE_libsrtp is not set
+# CONFIG_PACKAGE_libsrtp2 is not set
+# CONFIG_PACKAGE_signalwire-client-c is not set
 
 #
 # database
@@ -3385,6 +3357,8 @@ CONFIG_PACKAGE_boost-date_time=y
 # CONFIG_PACKAGE_boost-log is not set
 # CONFIG_PACKAGE_boost-math is not set
 CONFIG_PACKAGE_boost-program_options=y
+# CONFIG_PACKAGE_boost-python is not set
+# CONFIG_PACKAGE_boost-python3 is not set
 # CONFIG_PACKAGE_boost-random is not set
 # CONFIG_PACKAGE_boost-regex is not set
 # CONFIG_PACKAGE_boost-serialization is not set
@@ -3412,6 +3386,8 @@ CONFIG_PACKAGE_glib2=y
 # CONFIG_PACKAGE_ibrcommon is not set
 # CONFIG_PACKAGE_ibrdtn is not set
 # CONFIG_PACKAGE_icu is not set
+# CONFIG_PACKAGE_icu-data-tools is not set
+# CONFIG_PACKAGE_icu-full-data is not set
 # CONFIG_PACKAGE_jansson is not set
 # CONFIG_PACKAGE_knot-libs is not set
 # CONFIG_PACKAGE_knot-libzscanner is not set
@@ -3488,7 +3464,7 @@ CONFIG_LIBCURL_PROXY=y
 # CONFIG_LIBCURL_VERBOSE is not set
 # CONFIG_PACKAGE_libdaemon is not set
 # CONFIG_PACKAGE_libdaq is not set
-# CONFIG_PACKAGE_libdb47 is not set
+CONFIG_PACKAGE_libdb47=y
 # CONFIG_PACKAGE_libdb47xx is not set
 # CONFIG_PACKAGE_libdbi is not set
 CONFIG_PACKAGE_libdbus=y
@@ -3534,7 +3510,7 @@ CONFIG_PACKAGE_libflac=y
 # CONFIG_PACKAGE_libftdi1 is not set
 # CONFIG_PACKAGE_libgcrypt is not set
 # CONFIG_PACKAGE_libgd is not set
-# CONFIG_PACKAGE_libgdbm is not set
+CONFIG_PACKAGE_libgdbm=y
 # CONFIG_PACKAGE_libgee is not set
 # CONFIG_PACKAGE_libglpk is not set
 CONFIG_PACKAGE_libgmp=y
@@ -3549,7 +3525,7 @@ CONFIG_PACKAGE_libgmp=y
 # CONFIG_PACKAGE_libhttp-parser is not set
 # CONFIG_PACKAGE_libical is not set
 # CONFIG_PACKAGE_libiconv is not set
-# CONFIG_PACKAGE_libiconv-full is not set
+CONFIG_PACKAGE_libiconv-full=y
 CONFIG_PACKAGE_libid3tag=y
 # CONFIG_PACKAGE_libidn is not set
 # CONFIG_PACKAGE_libidn2 is not set
@@ -3646,6 +3622,7 @@ CONFIG_PACKAGE_libpcre=y
 # CONFIG_PACKAGE_libplistcxx is not set
 # CONFIG_PACKAGE_libpng is not set
 CONFIG_PACKAGE_libpopt=y
+# CONFIG_PACKAGE_libpri is not set
 # CONFIG_PACKAGE_libprotobuf-c is not set
 CONFIG_PACKAGE_libqmi=y
 # CONFIG_PACKAGE_libqrencode is not set
@@ -3654,7 +3631,6 @@ CONFIG_PACKAGE_libreadline=y
 # CONFIG_PACKAGE_libredblack is not set
 # CONFIG_PACKAGE_librouteros is not set
 # CONFIG_PACKAGE_libroxml is not set
-# CONFIG_PACKAGE_librpc is not set
 CONFIG_PACKAGE_librrd1=y
 # CONFIG_PACKAGE_librtlsdr is not set
 # CONFIG_PACKAGE_libruby is not set
@@ -3796,21 +3772,21 @@ CONFIG_LUCI_SRCDIET=y
 #
 # Translations
 #
-CONFIG_LUCI_LANG_uk=y
 CONFIG_LUCI_LANG_hu=y
 CONFIG_LUCI_LANG_pt=y
+CONFIG_LUCI_LANG_sk=y
 CONFIG_LUCI_LANG_ko=y
 CONFIG_LUCI_LANG_en=y
 CONFIG_LUCI_LANG_pl=y
-CONFIG_LUCI_LANG_sk=y
+CONFIG_LUCI_LANG_uk=y
 CONFIG_LUCI_LANG_ru=y
 CONFIG_LUCI_LANG_vi=y
-CONFIG_LUCI_LANG_he=y
-CONFIG_LUCI_LANG_ro=y
+CONFIG_LUCI_LANG_de=y
+CONFIG_LUCI_LANG_no=y
 CONFIG_LUCI_LANG_ms=y
 CONFIG_LUCI_LANG_zh-cn=y
-CONFIG_LUCI_LANG_no=y
-CONFIG_LUCI_LANG_de=y
+CONFIG_LUCI_LANG_ro=y
+CONFIG_LUCI_LANG_he=y
 CONFIG_LUCI_LANG_zh-tw=y
 CONFIG_LUCI_LANG_tr=y
 CONFIG_LUCI_LANG_sv=y
@@ -3835,7 +3811,6 @@ CONFIG_PACKAGE_luci-app-accesscontrol=y
 # CONFIG_PACKAGE_luci-app-acme is not set
 CONFIG_PACKAGE_luci-app-adblock=y
 CONFIG_PACKAGE_luci-app-adbyby-plus=y
-# CONFIG_PACKAGE_luci-app-adguardhome is not set
 # CONFIG_PACKAGE_luci-app-advanced-reboot is not set
 # CONFIG_PACKAGE_luci-app-ahcp is not set
 # CONFIG_PACKAGE_luci-app-amule is not set
@@ -3853,22 +3828,20 @@ CONFIG_PACKAGE_luci-app-autoreboot=y
 # CONFIG_PACKAGE_luci-app-cifsd is not set
 # CONFIG_PACKAGE_luci-app-cjdns is not set
 # CONFIG_PACKAGE_luci-app-clamav is not set
-# CONFIG_PACKAGE_luci-app-clash is not set
 CONFIG_PACKAGE_luci-app-commands=y
 # CONFIG_PACKAGE_luci-app-cshark is not set
 CONFIG_PACKAGE_luci-app-ddns=y
 # CONFIG_PACKAGE_luci-app-diag-core is not set
 # CONFIG_PACKAGE_luci-app-dnscrypt-proxy is not set
 # CONFIG_PACKAGE_luci-app-dnsforwarder is not set
-# CONFIG_PACKAGE_luci-app-dnspod is not set
-# CONFIG_PACKAGE_luci-app-dockerman is not set
+CONFIG_PACKAGE_luci-app-dockerman=y
 # CONFIG_PACKAGE_luci-app-dump1090 is not set
 # CONFIG_PACKAGE_luci-app-dynapoint is not set
 # CONFIG_PACKAGE_luci-app-e2guardian is not set
 # CONFIG_PACKAGE_luci-app-familycloud is not set
 CONFIG_PACKAGE_luci-app-filetransfer=y
 CONFIG_PACKAGE_luci-app-firewall=y
-CONFIG_PACKAGE_luci-app-flowoffload=y
+# CONFIG_PACKAGE_luci-app-flowoffload is not set
 # CONFIG_PACKAGE_luci-app-freifunk-diagnostics is not set
 # CONFIG_PACKAGE_luci-app-freifunk-policyrouting is not set
 # CONFIG_PACKAGE_luci-app-freifunk-widgets is not set
@@ -3885,7 +3858,7 @@ CONFIG_PACKAGE_luci-app-hd-idle=y
 CONFIG_PACKAGE_luci-app-minidlna=y
 # CONFIG_PACKAGE_luci-app-mjpg-streamer is not set
 # CONFIG_PACKAGE_luci-app-mtwifi is not set
-# CONFIG_PACKAGE_luci-app-mwan3 is not set
+CONFIG_PACKAGE_luci-app-mwan3=y
 # CONFIG_PACKAGE_luci-app-mwan3helper is not set
 # CONFIG_PACKAGE_luci-app-n2n_v2 is not set
 CONFIG_PACKAGE_luci-app-netdata=y
@@ -3898,14 +3871,12 @@ CONFIG_PACKAGE_luci-app-ntpc=y
 # CONFIG_PACKAGE_luci-app-olsr is not set
 # CONFIG_PACKAGE_luci-app-olsr-services is not set
 # CONFIG_PACKAGE_luci-app-olsr-viz is not set
-CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-app-openvpn=y
 # CONFIG_PACKAGE_luci-app-openvpn-server is not set
 # CONFIG_PACKAGE_luci-app-p910nd is not set
 # CONFIG_PACKAGE_luci-app-pagekitec is not set
 # CONFIG_PACKAGE_luci-app-polipo is not set
 # CONFIG_PACKAGE_luci-app-pppoe-relay is not set
-# CONFIG_PACKAGE_luci-app-pptp-server is not set
 # CONFIG_PACKAGE_luci-app-privoxy is not set
 # CONFIG_PACKAGE_luci-app-qbittorrent is not set
 CONFIG_PACKAGE_luci-app-qos=y
@@ -3918,7 +3889,7 @@ CONFIG_PACKAGE_luci-app-samba=y
 # CONFIG_PACKAGE_luci-app-shairplay is not set
 # CONFIG_PACKAGE_luci-app-siitwizard is not set
 # CONFIG_PACKAGE_luci-app-simple-adblock is not set
-# CONFIG_PACKAGE_luci-app-softethervpn is not set
+CONFIG_PACKAGE_luci-app-softethervpn=y
 # CONFIG_PACKAGE_luci-app-splash is not set
 CONFIG_PACKAGE_luci-app-sqm=y
 # CONFIG_PACKAGE_luci-app-squid is not set
@@ -3928,9 +3899,8 @@ CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server is not set
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
 # CONFIG_PACKAGE_luci-app-ssrserver-python is not set
 CONFIG_PACKAGE_luci-app-statistics=y
 CONFIG_PACKAGE_luci-app-syncdial=y
@@ -3976,7 +3946,6 @@ CONFIG_PACKAGE_luci-proto-3g=y
 # CONFIG_PACKAGE_luci-proto-bonding is not set
 # CONFIG_PACKAGE_luci-proto-ipip is not set
 CONFIG_PACKAGE_luci-proto-ipv6=y
-# CONFIG_PACKAGE_luci-proto-ncm is not set
 CONFIG_PACKAGE_luci-proto-openconnect=y
 CONFIG_PACKAGE_luci-proto-ppp=y
 CONFIG_PACKAGE_luci-proto-qmi=y
@@ -3987,14 +3956,14 @@ CONFIG_PACKAGE_luci-proto-wireguard=y
 #
 # 6. Libraries
 #
-# CONFIG_PACKAGE_luci-lib-docker is not set
+CONFIG_PACKAGE_luci-lib-docker=y
 # CONFIG_PACKAGE_luci-lib-dracula is not set
 # CONFIG_PACKAGE_luci-lib-httpclient is not set
 # CONFIG_PACKAGE_luci-lib-httpprotoutils is not set
 CONFIG_PACKAGE_luci-lib-ip=y
 # CONFIG_PACKAGE_luci-lib-iptparser is not set
 # CONFIG_PACKAGE_luci-lib-jquery-1-4 is not set
-# CONFIG_PACKAGE_luci-lib-json is not set
+CONFIG_PACKAGE_luci-lib-json=y
 CONFIG_PACKAGE_luci-lib-jsonc=y
 # CONFIG_PACKAGE_luci-lib-luaneightbl is not set
 CONFIG_PACKAGE_luci-lib-nixio=y
@@ -4010,66 +3979,398 @@ CONFIG_PACKAGE_luci-lib-nixio=y
 # CONFIG_PACKAGE_meshwizard is not set
 CONFIG_PACKAGE_default-settings=y
 CONFIG_PACKAGE_luci-i18n-accesscontrol-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-adblock-it=y
+CONFIG_PACKAGE_luci-i18n-adblock-ja=y
+CONFIG_PACKAGE_luci-i18n-adblock-pt-br=y
+CONFIG_PACKAGE_luci-i18n-adblock-ru=y
+CONFIG_PACKAGE_luci-i18n-adblock-sv=y
 CONFIG_PACKAGE_luci-i18n-adblock-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-adblock-zh-tw=y
 CONFIG_PACKAGE_luci-i18n-adbyby-plus-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-aria2-pt-br=y
+CONFIG_PACKAGE_luci-i18n-aria2-ru=y
+CONFIG_PACKAGE_luci-i18n-aria2-sv=y
 CONFIG_PACKAGE_luci-i18n-aria2-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-aria2-zh-tw=y
 CONFIG_PACKAGE_luci-i18n-arpbind-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-autoreboot-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-base-ca=y
+CONFIG_PACKAGE_luci-i18n-base-cs=y
+CONFIG_PACKAGE_luci-i18n-base-de=y
+CONFIG_PACKAGE_luci-i18n-base-el=y
 CONFIG_PACKAGE_luci-i18n-base-en=y
+CONFIG_PACKAGE_luci-i18n-base-es=y
+CONFIG_PACKAGE_luci-i18n-base-fr=y
+CONFIG_PACKAGE_luci-i18n-base-he=y
+CONFIG_PACKAGE_luci-i18n-base-hu=y
+CONFIG_PACKAGE_luci-i18n-base-it=y
+CONFIG_PACKAGE_luci-i18n-base-ja=y
+CONFIG_PACKAGE_luci-i18n-base-ko=y
+CONFIG_PACKAGE_luci-i18n-base-ms=y
+CONFIG_PACKAGE_luci-i18n-base-no=y
+CONFIG_PACKAGE_luci-i18n-base-pl=y
+CONFIG_PACKAGE_luci-i18n-base-pt=y
+CONFIG_PACKAGE_luci-i18n-base-pt-br=y
+CONFIG_PACKAGE_luci-i18n-base-ro=y
+CONFIG_PACKAGE_luci-i18n-base-ru=y
+CONFIG_PACKAGE_luci-i18n-base-sk=y
+CONFIG_PACKAGE_luci-i18n-base-sv=y
+CONFIG_PACKAGE_luci-i18n-base-tr=y
+CONFIG_PACKAGE_luci-i18n-base-uk=y
+CONFIG_PACKAGE_luci-i18n-base-vi=y
 CONFIG_PACKAGE_luci-i18n-base-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-base-zh-tw=y
+CONFIG_PACKAGE_luci-i18n-commands-ca=y
+CONFIG_PACKAGE_luci-i18n-commands-cs=y
+CONFIG_PACKAGE_luci-i18n-commands-de=y
+CONFIG_PACKAGE_luci-i18n-commands-el=y
 CONFIG_PACKAGE_luci-i18n-commands-en=y
+CONFIG_PACKAGE_luci-i18n-commands-es=y
+CONFIG_PACKAGE_luci-i18n-commands-fr=y
+CONFIG_PACKAGE_luci-i18n-commands-he=y
+CONFIG_PACKAGE_luci-i18n-commands-hu=y
+CONFIG_PACKAGE_luci-i18n-commands-it=y
+CONFIG_PACKAGE_luci-i18n-commands-ja=y
+CONFIG_PACKAGE_luci-i18n-commands-ms=y
+CONFIG_PACKAGE_luci-i18n-commands-no=y
+CONFIG_PACKAGE_luci-i18n-commands-pl=y
+CONFIG_PACKAGE_luci-i18n-commands-pt=y
+CONFIG_PACKAGE_luci-i18n-commands-pt-br=y
+CONFIG_PACKAGE_luci-i18n-commands-ro=y
+CONFIG_PACKAGE_luci-i18n-commands-ru=y
+CONFIG_PACKAGE_luci-i18n-commands-sk=y
+CONFIG_PACKAGE_luci-i18n-commands-sv=y
+CONFIG_PACKAGE_luci-i18n-commands-tr=y
+CONFIG_PACKAGE_luci-i18n-commands-uk=y
+CONFIG_PACKAGE_luci-i18n-commands-vi=y
 CONFIG_PACKAGE_luci-i18n-commands-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-commands-zh-tw=y
+CONFIG_PACKAGE_luci-i18n-ddns-ca=y
+CONFIG_PACKAGE_luci-i18n-ddns-cs=y
+CONFIG_PACKAGE_luci-i18n-ddns-de=y
+CONFIG_PACKAGE_luci-i18n-ddns-el=y
+CONFIG_PACKAGE_luci-i18n-ddns-es=y
+CONFIG_PACKAGE_luci-i18n-ddns-fr=y
+CONFIG_PACKAGE_luci-i18n-ddns-he=y
+CONFIG_PACKAGE_luci-i18n-ddns-hu=y
+CONFIG_PACKAGE_luci-i18n-ddns-it=y
+CONFIG_PACKAGE_luci-i18n-ddns-ja=y
+CONFIG_PACKAGE_luci-i18n-ddns-no=y
+CONFIG_PACKAGE_luci-i18n-ddns-pl=y
+CONFIG_PACKAGE_luci-i18n-ddns-pt=y
+CONFIG_PACKAGE_luci-i18n-ddns-pt-br=y
+CONFIG_PACKAGE_luci-i18n-ddns-ro=y
+CONFIG_PACKAGE_luci-i18n-ddns-ru=y
+CONFIG_PACKAGE_luci-i18n-ddns-sv=y
+CONFIG_PACKAGE_luci-i18n-ddns-tr=y
+CONFIG_PACKAGE_luci-i18n-ddns-uk=y
+CONFIG_PACKAGE_luci-i18n-ddns-vi=y
 CONFIG_PACKAGE_luci-i18n-ddns-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-ddns-zh-tw=y
+CONFIG_PACKAGE_luci-i18n-dockerman-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-filetransfer-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-firewall-ca=y
+CONFIG_PACKAGE_luci-i18n-firewall-cs=y
+CONFIG_PACKAGE_luci-i18n-firewall-de=y
+CONFIG_PACKAGE_luci-i18n-firewall-el=y
 CONFIG_PACKAGE_luci-i18n-firewall-en=y
+CONFIG_PACKAGE_luci-i18n-firewall-es=y
+CONFIG_PACKAGE_luci-i18n-firewall-fr=y
+CONFIG_PACKAGE_luci-i18n-firewall-he=y
+CONFIG_PACKAGE_luci-i18n-firewall-hu=y
+CONFIG_PACKAGE_luci-i18n-firewall-it=y
+CONFIG_PACKAGE_luci-i18n-firewall-ja=y
+CONFIG_PACKAGE_luci-i18n-firewall-ko=y
+CONFIG_PACKAGE_luci-i18n-firewall-ms=y
+CONFIG_PACKAGE_luci-i18n-firewall-no=y
+CONFIG_PACKAGE_luci-i18n-firewall-pl=y
+CONFIG_PACKAGE_luci-i18n-firewall-pt=y
+CONFIG_PACKAGE_luci-i18n-firewall-pt-br=y
+CONFIG_PACKAGE_luci-i18n-firewall-ro=y
+CONFIG_PACKAGE_luci-i18n-firewall-ru=y
+CONFIG_PACKAGE_luci-i18n-firewall-sk=y
+CONFIG_PACKAGE_luci-i18n-firewall-sv=y
+CONFIG_PACKAGE_luci-i18n-firewall-tr=y
+CONFIG_PACKAGE_luci-i18n-firewall-uk=y
+CONFIG_PACKAGE_luci-i18n-firewall-vi=y
 CONFIG_PACKAGE_luci-i18n-firewall-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-firewall-zh-tw=y
-CONFIG_PACKAGE_luci-i18n-flowoffload-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-ca=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-cs=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-de=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-el=y
 CONFIG_PACKAGE_luci-i18n-hd-idle-en=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-es=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-fr=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-he=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-hu=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-it=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-ja=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-ms=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-no=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-pl=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-pt=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-pt-br=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-ro=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-ru=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-sk=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-sv=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-tr=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-uk=y
+CONFIG_PACKAGE_luci-i18n-hd-idle-vi=y
 CONFIG_PACKAGE_luci-i18n-hd-idle-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-hd-idle-zh-tw=y
+CONFIG_PACKAGE_luci-i18n-minidlna-ca=y
+CONFIG_PACKAGE_luci-i18n-minidlna-cs=y
+CONFIG_PACKAGE_luci-i18n-minidlna-de=y
+CONFIG_PACKAGE_luci-i18n-minidlna-el=y
 CONFIG_PACKAGE_luci-i18n-minidlna-en=y
+CONFIG_PACKAGE_luci-i18n-minidlna-es=y
+CONFIG_PACKAGE_luci-i18n-minidlna-fr=y
+CONFIG_PACKAGE_luci-i18n-minidlna-he=y
+CONFIG_PACKAGE_luci-i18n-minidlna-hu=y
+CONFIG_PACKAGE_luci-i18n-minidlna-it=y
+CONFIG_PACKAGE_luci-i18n-minidlna-ja=y
+CONFIG_PACKAGE_luci-i18n-minidlna-ms=y
+CONFIG_PACKAGE_luci-i18n-minidlna-no=y
+CONFIG_PACKAGE_luci-i18n-minidlna-pl=y
+CONFIG_PACKAGE_luci-i18n-minidlna-pt=y
+CONFIG_PACKAGE_luci-i18n-minidlna-pt-br=y
+CONFIG_PACKAGE_luci-i18n-minidlna-ro=y
+CONFIG_PACKAGE_luci-i18n-minidlna-ru=y
+CONFIG_PACKAGE_luci-i18n-minidlna-sk=y
+CONFIG_PACKAGE_luci-i18n-minidlna-sv=y
+CONFIG_PACKAGE_luci-i18n-minidlna-tr=y
+CONFIG_PACKAGE_luci-i18n-minidlna-uk=y
+CONFIG_PACKAGE_luci-i18n-minidlna-vi=y
 CONFIG_PACKAGE_luci-i18n-minidlna-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-minidlna-zh-tw=y
+CONFIG_PACKAGE_luci-i18n-mwan3-ja=y
+CONFIG_PACKAGE_luci-i18n-mwan3-ru=y
+CONFIG_PACKAGE_luci-i18n-mwan3-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-mwan3-zh-tw=y
 CONFIG_PACKAGE_luci-i18n-netdata-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-nlbwmon-ja=y
+CONFIG_PACKAGE_luci-i18n-nlbwmon-ru=y
 CONFIG_PACKAGE_luci-i18n-nlbwmon-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-nps-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-ntpc-ca=y
+CONFIG_PACKAGE_luci-i18n-ntpc-cs=y
+CONFIG_PACKAGE_luci-i18n-ntpc-de=y
+CONFIG_PACKAGE_luci-i18n-ntpc-el=y
 CONFIG_PACKAGE_luci-i18n-ntpc-en=y
+CONFIG_PACKAGE_luci-i18n-ntpc-es=y
+CONFIG_PACKAGE_luci-i18n-ntpc-fr=y
+CONFIG_PACKAGE_luci-i18n-ntpc-he=y
+CONFIG_PACKAGE_luci-i18n-ntpc-hu=y
+CONFIG_PACKAGE_luci-i18n-ntpc-it=y
+CONFIG_PACKAGE_luci-i18n-ntpc-ja=y
+CONFIG_PACKAGE_luci-i18n-ntpc-ms=y
+CONFIG_PACKAGE_luci-i18n-ntpc-no=y
+CONFIG_PACKAGE_luci-i18n-ntpc-pl=y
+CONFIG_PACKAGE_luci-i18n-ntpc-pt=y
+CONFIG_PACKAGE_luci-i18n-ntpc-pt-br=y
+CONFIG_PACKAGE_luci-i18n-ntpc-ro=y
+CONFIG_PACKAGE_luci-i18n-ntpc-ru=y
+CONFIG_PACKAGE_luci-i18n-ntpc-sk=y
+CONFIG_PACKAGE_luci-i18n-ntpc-sv=y
+CONFIG_PACKAGE_luci-i18n-ntpc-tr=y
+CONFIG_PACKAGE_luci-i18n-ntpc-uk=y
+CONFIG_PACKAGE_luci-i18n-ntpc-vi=y
 CONFIG_PACKAGE_luci-i18n-ntpc-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-ntpc-zh-tw=y
+CONFIG_PACKAGE_luci-i18n-openvpn-ca=y
+CONFIG_PACKAGE_luci-i18n-openvpn-cs=y
+CONFIG_PACKAGE_luci-i18n-openvpn-de=y
+CONFIG_PACKAGE_luci-i18n-openvpn-el=y
 CONFIG_PACKAGE_luci-i18n-openvpn-en=y
+CONFIG_PACKAGE_luci-i18n-openvpn-es=y
+CONFIG_PACKAGE_luci-i18n-openvpn-fr=y
+CONFIG_PACKAGE_luci-i18n-openvpn-he=y
+CONFIG_PACKAGE_luci-i18n-openvpn-hu=y
+CONFIG_PACKAGE_luci-i18n-openvpn-it=y
+CONFIG_PACKAGE_luci-i18n-openvpn-ja=y
+CONFIG_PACKAGE_luci-i18n-openvpn-ms=y
+CONFIG_PACKAGE_luci-i18n-openvpn-no=y
+CONFIG_PACKAGE_luci-i18n-openvpn-pl=y
+CONFIG_PACKAGE_luci-i18n-openvpn-pt=y
+CONFIG_PACKAGE_luci-i18n-openvpn-pt-br=y
+CONFIG_PACKAGE_luci-i18n-openvpn-ro=y
+CONFIG_PACKAGE_luci-i18n-openvpn-ru=y
+CONFIG_PACKAGE_luci-i18n-openvpn-sk=y
+CONFIG_PACKAGE_luci-i18n-openvpn-sv=y
+CONFIG_PACKAGE_luci-i18n-openvpn-tr=y
+CONFIG_PACKAGE_luci-i18n-openvpn-uk=y
+CONFIG_PACKAGE_luci-i18n-openvpn-vi=y
 CONFIG_PACKAGE_luci-i18n-openvpn-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-openvpn-zh-tw=y
-CONFIG_PACKAGE_luci-i18n-pptp-server-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-qos-ca=y
+CONFIG_PACKAGE_luci-i18n-qos-cs=y
+CONFIG_PACKAGE_luci-i18n-qos-de=y
+CONFIG_PACKAGE_luci-i18n-qos-el=y
 CONFIG_PACKAGE_luci-i18n-qos-en=y
+CONFIG_PACKAGE_luci-i18n-qos-es=y
+CONFIG_PACKAGE_luci-i18n-qos-fr=y
+CONFIG_PACKAGE_luci-i18n-qos-he=y
+CONFIG_PACKAGE_luci-i18n-qos-hu=y
+CONFIG_PACKAGE_luci-i18n-qos-it=y
+CONFIG_PACKAGE_luci-i18n-qos-ja=y
+CONFIG_PACKAGE_luci-i18n-qos-ms=y
+CONFIG_PACKAGE_luci-i18n-qos-no=y
+CONFIG_PACKAGE_luci-i18n-qos-pl=y
+CONFIG_PACKAGE_luci-i18n-qos-pt=y
+CONFIG_PACKAGE_luci-i18n-qos-pt-br=y
+CONFIG_PACKAGE_luci-i18n-qos-ro=y
+CONFIG_PACKAGE_luci-i18n-qos-ru=y
+CONFIG_PACKAGE_luci-i18n-qos-sk=y
+CONFIG_PACKAGE_luci-i18n-qos-sv=y
+CONFIG_PACKAGE_luci-i18n-qos-tr=y
+CONFIG_PACKAGE_luci-i18n-qos-uk=y
+CONFIG_PACKAGE_luci-i18n-qos-vi=y
 CONFIG_PACKAGE_luci-i18n-qos-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-qos-zh-tw=y
 CONFIG_PACKAGE_luci-i18n-ramfree-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-samba-ca=y
+CONFIG_PACKAGE_luci-i18n-samba-cs=y
+CONFIG_PACKAGE_luci-i18n-samba-de=y
+CONFIG_PACKAGE_luci-i18n-samba-el=y
 CONFIG_PACKAGE_luci-i18n-samba-en=y
+CONFIG_PACKAGE_luci-i18n-samba-es=y
+CONFIG_PACKAGE_luci-i18n-samba-fr=y
+CONFIG_PACKAGE_luci-i18n-samba-he=y
+CONFIG_PACKAGE_luci-i18n-samba-hu=y
+CONFIG_PACKAGE_luci-i18n-samba-it=y
+CONFIG_PACKAGE_luci-i18n-samba-ja=y
+CONFIG_PACKAGE_luci-i18n-samba-ms=y
+CONFIG_PACKAGE_luci-i18n-samba-no=y
+CONFIG_PACKAGE_luci-i18n-samba-pl=y
+CONFIG_PACKAGE_luci-i18n-samba-pt=y
+CONFIG_PACKAGE_luci-i18n-samba-pt-br=y
+CONFIG_PACKAGE_luci-i18n-samba-ro=y
+CONFIG_PACKAGE_luci-i18n-samba-ru=y
+CONFIG_PACKAGE_luci-i18n-samba-sk=y
+CONFIG_PACKAGE_luci-i18n-samba-sv=y
+CONFIG_PACKAGE_luci-i18n-samba-tr=y
+CONFIG_PACKAGE_luci-i18n-samba-uk=y
+CONFIG_PACKAGE_luci-i18n-samba-vi=y
 CONFIG_PACKAGE_luci-i18n-samba-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-samba-zh-tw=y
-CONFIG_PACKAGE_luci-i18n-smartdns-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-softethervpn-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-statistics-ca=y
+CONFIG_PACKAGE_luci-i18n-statistics-cs=y
+CONFIG_PACKAGE_luci-i18n-statistics-de=y
+CONFIG_PACKAGE_luci-i18n-statistics-el=y
 CONFIG_PACKAGE_luci-i18n-statistics-en=y
+CONFIG_PACKAGE_luci-i18n-statistics-es=y
+CONFIG_PACKAGE_luci-i18n-statistics-fr=y
+CONFIG_PACKAGE_luci-i18n-statistics-he=y
+CONFIG_PACKAGE_luci-i18n-statistics-hu=y
+CONFIG_PACKAGE_luci-i18n-statistics-it=y
+CONFIG_PACKAGE_luci-i18n-statistics-ja=y
+CONFIG_PACKAGE_luci-i18n-statistics-ms=y
+CONFIG_PACKAGE_luci-i18n-statistics-no=y
+CONFIG_PACKAGE_luci-i18n-statistics-pl=y
+CONFIG_PACKAGE_luci-i18n-statistics-pt=y
+CONFIG_PACKAGE_luci-i18n-statistics-pt-br=y
+CONFIG_PACKAGE_luci-i18n-statistics-ro=y
+CONFIG_PACKAGE_luci-i18n-statistics-ru=y
+CONFIG_PACKAGE_luci-i18n-statistics-sk=y
+CONFIG_PACKAGE_luci-i18n-statistics-sv=y
+CONFIG_PACKAGE_luci-i18n-statistics-tr=y
+CONFIG_PACKAGE_luci-i18n-statistics-uk=y
+CONFIG_PACKAGE_luci-i18n-statistics-vi=y
 CONFIG_PACKAGE_luci-i18n-statistics-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-statistics-zh-tw=y
 CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-upnp-ca=y
+CONFIG_PACKAGE_luci-i18n-upnp-cs=y
+CONFIG_PACKAGE_luci-i18n-upnp-de=y
+CONFIG_PACKAGE_luci-i18n-upnp-el=y
 CONFIG_PACKAGE_luci-i18n-upnp-en=y
+CONFIG_PACKAGE_luci-i18n-upnp-es=y
+CONFIG_PACKAGE_luci-i18n-upnp-fr=y
+CONFIG_PACKAGE_luci-i18n-upnp-he=y
+CONFIG_PACKAGE_luci-i18n-upnp-hu=y
+CONFIG_PACKAGE_luci-i18n-upnp-it=y
+CONFIG_PACKAGE_luci-i18n-upnp-ja=y
+CONFIG_PACKAGE_luci-i18n-upnp-ms=y
+CONFIG_PACKAGE_luci-i18n-upnp-no=y
+CONFIG_PACKAGE_luci-i18n-upnp-pl=y
+CONFIG_PACKAGE_luci-i18n-upnp-pt=y
+CONFIG_PACKAGE_luci-i18n-upnp-pt-br=y
+CONFIG_PACKAGE_luci-i18n-upnp-ro=y
+CONFIG_PACKAGE_luci-i18n-upnp-ru=y
+CONFIG_PACKAGE_luci-i18n-upnp-sk=y
+CONFIG_PACKAGE_luci-i18n-upnp-sv=y
+CONFIG_PACKAGE_luci-i18n-upnp-tr=y
+CONFIG_PACKAGE_luci-i18n-upnp-uk=y
+CONFIG_PACKAGE_luci-i18n-upnp-vi=y
 CONFIG_PACKAGE_luci-i18n-upnp-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-upnp-zh-tw=y
 CONFIG_PACKAGE_luci-i18n-vlmcsd-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-vsftpd-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-watchcat-ca=y
+CONFIG_PACKAGE_luci-i18n-watchcat-cs=y
+CONFIG_PACKAGE_luci-i18n-watchcat-de=y
+CONFIG_PACKAGE_luci-i18n-watchcat-el=y
 CONFIG_PACKAGE_luci-i18n-watchcat-en=y
+CONFIG_PACKAGE_luci-i18n-watchcat-es=y
+CONFIG_PACKAGE_luci-i18n-watchcat-fr=y
+CONFIG_PACKAGE_luci-i18n-watchcat-he=y
+CONFIG_PACKAGE_luci-i18n-watchcat-hu=y
+CONFIG_PACKAGE_luci-i18n-watchcat-it=y
+CONFIG_PACKAGE_luci-i18n-watchcat-ja=y
+CONFIG_PACKAGE_luci-i18n-watchcat-ms=y
+CONFIG_PACKAGE_luci-i18n-watchcat-no=y
+CONFIG_PACKAGE_luci-i18n-watchcat-pl=y
+CONFIG_PACKAGE_luci-i18n-watchcat-pt=y
+CONFIG_PACKAGE_luci-i18n-watchcat-pt-br=y
+CONFIG_PACKAGE_luci-i18n-watchcat-ro=y
+CONFIG_PACKAGE_luci-i18n-watchcat-ru=y
+CONFIG_PACKAGE_luci-i18n-watchcat-sk=y
+CONFIG_PACKAGE_luci-i18n-watchcat-sv=y
+CONFIG_PACKAGE_luci-i18n-watchcat-tr=y
+CONFIG_PACKAGE_luci-i18n-watchcat-uk=y
+CONFIG_PACKAGE_luci-i18n-watchcat-vi=y
 CONFIG_PACKAGE_luci-i18n-watchcat-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-watchcat-zh-tw=y
+CONFIG_PACKAGE_luci-i18n-wifischedule-it=y
+CONFIG_PACKAGE_luci-i18n-wifischedule-ja=y
+CONFIG_PACKAGE_luci-i18n-wifischedule-pt-br=y
+CONFIG_PACKAGE_luci-i18n-wifischedule-ru=y
+CONFIG_PACKAGE_luci-i18n-wifischedule-sv=y
 CONFIG_PACKAGE_luci-i18n-wifischedule-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-wireguard-ja=y
+CONFIG_PACKAGE_luci-i18n-wireguard-pt-br=y
+CONFIG_PACKAGE_luci-i18n-wireguard-ru=y
+CONFIG_PACKAGE_luci-i18n-wireguard-sv=y
 CONFIG_PACKAGE_luci-i18n-wireguard-zh-cn=y
+CONFIG_PACKAGE_luci-i18n-wol-ca=y
+CONFIG_PACKAGE_luci-i18n-wol-cs=y
+CONFIG_PACKAGE_luci-i18n-wol-de=y
+CONFIG_PACKAGE_luci-i18n-wol-el=y
 CONFIG_PACKAGE_luci-i18n-wol-en=y
+CONFIG_PACKAGE_luci-i18n-wol-es=y
+CONFIG_PACKAGE_luci-i18n-wol-fr=y
+CONFIG_PACKAGE_luci-i18n-wol-he=y
+CONFIG_PACKAGE_luci-i18n-wol-hu=y
+CONFIG_PACKAGE_luci-i18n-wol-it=y
+CONFIG_PACKAGE_luci-i18n-wol-ja=y
+CONFIG_PACKAGE_luci-i18n-wol-ms=y
+CONFIG_PACKAGE_luci-i18n-wol-no=y
+CONFIG_PACKAGE_luci-i18n-wol-pl=y
+CONFIG_PACKAGE_luci-i18n-wol-pt=y
+CONFIG_PACKAGE_luci-i18n-wol-pt-br=y
+CONFIG_PACKAGE_luci-i18n-wol-ro=y
+CONFIG_PACKAGE_luci-i18n-wol-ru=y
+CONFIG_PACKAGE_luci-i18n-wol-sk=y
+CONFIG_PACKAGE_luci-i18n-wol-sv=y
+CONFIG_PACKAGE_luci-i18n-wol-tr=y
+CONFIG_PACKAGE_luci-i18n-wol-uk=y
+CONFIG_PACKAGE_luci-i18n-wol-vi=y
 CONFIG_PACKAGE_luci-i18n-wol-zh-cn=y
 CONFIG_PACKAGE_luci-i18n-wol-zh-tw=y
+CONFIG_PACKAGE_luci-i18n-zerotier-zh-cn=y
 
 #
 # Mail
@@ -4236,8 +4537,6 @@ CONFIG_PACKAGE_wget=y
 # Firewall
 #
 # CONFIG_PACKAGE_arptables is not set
-# CONFIG_PACKAGE_conntrack is not set
-# CONFIG_PACKAGE_conntrackd is not set
 # CONFIG_PACKAGE_ebtables is not set
 # CONFIG_PACKAGE_fwknop is not set
 # CONFIG_PACKAGE_fwknopd is not set
@@ -4543,7 +4842,7 @@ CONFIG_PACKAGE_ip-tiny=y
 # CONFIG_PACKAGE_lldpd is not set
 # CONFIG_PACKAGE_mcproxy is not set
 # CONFIG_PACKAGE_mrmctl is not set
-# CONFIG_PACKAGE_mwan3 is not set
+CONFIG_PACKAGE_mwan3=y
 # CONFIG_PACKAGE_nstat is not set
 # CONFIG_PACKAGE_olsrd is not set
 # CONFIG_PACKAGE_prince is not set
@@ -4628,6 +4927,25 @@ CONFIG_PACKAGE_openssh-keygen=y
 # CONFIG_PACKAGE_thc-ipv6-trace6 is not set
 
 #
+# Telephony
+#
+# CONFIG_PACKAGE_asterisk16 is not set
+# CONFIG_PACKAGE_baresip is not set
+# CONFIG_PACKAGE_freeswitch-stable is not set
+# CONFIG_PACKAGE_kamailio5 is not set
+# CONFIG_PACKAGE_miax is not set
+# CONFIG_PACKAGE_pcapsipdump is not set
+# CONFIG_PACKAGE_restund is not set
+# CONFIG_PACKAGE_rtpproxy is not set
+# CONFIG_PACKAGE_sipp is not set
+# CONFIG_PACKAGE_siproxd is not set
+# CONFIG_PACKAGE_yate is not set
+
+#
+# Telephony Lantiq
+#
+
+#
 # Time Synchronization
 #
 # CONFIG_PACKAGE_chrony is not set
@@ -4677,9 +4995,10 @@ CONFIG_OPENVPN_openssl_ENABLE_SMALL=y
 # CONFIG_PACKAGE_softethervpn-bridge is not set
 # CONFIG_PACKAGE_softethervpn-client is not set
 # CONFIG_PACKAGE_softethervpn-server is not set
-# CONFIG_PACKAGE_softethervpn5-bridge is not set
-# CONFIG_PACKAGE_softethervpn5-client is not set
-# CONFIG_PACKAGE_softethervpn5-server is not set
+CONFIG_PACKAGE_softethervpn5-bridge=y
+CONFIG_PACKAGE_softethervpn5-client=y
+CONFIG_PACKAGE_softethervpn5-libs=y
+CONFIG_PACKAGE_softethervpn5-server=y
 # CONFIG_PACKAGE_sstp-client is not set
 # CONFIG_PACKAGE_strongswan is not set
 # CONFIG_PACKAGE_strongswan-charon is not set
@@ -4775,8 +5094,15 @@ CONFIG_OPENVPN_openssl_ENABLE_SMALL=y
 # CONFIG_PACKAGE_vpnc is not set
 CONFIG_PACKAGE_vpnc-scripts=y
 CONFIG_PACKAGE_wireguard=y
+CONFIG_PACKAGE_wireguard-tools=y
 # CONFIG_PACKAGE_xl2tpd is not set
 CONFIG_PACKAGE_zerotier=y
+
+#
+# Configuration
+#
+# CONFIG_ZEROTIER_ENABLE_DEBUG is not set
+# CONFIG_ZEROTIER_ENABLE_SELFTEST is not set
 
 #
 # Version Control Systems
@@ -4794,7 +5120,6 @@ CONFIG_PACKAGE_git-http=y
 # CONFIG_PACKAGE_adb-enablemodem is not set
 CONFIG_PACKAGE_comgt=y
 # CONFIG_PACKAGE_comgt-directip is not set
-# CONFIG_PACKAGE_comgt-ncm is not set
 CONFIG_PACKAGE_uqmi=y
 
 #
@@ -4807,6 +5132,8 @@ CONFIG_PACKAGE_cgi-io=y
 # CONFIG_PACKAGE_freshclam is not set
 # CONFIG_PACKAGE_haproxy is not set
 # CONFIG_PACKAGE_haproxy-nossl is not set
+CONFIG_PACKAGE_kcptun-client=y
+# CONFIG_PACKAGE_kcptun-server is not set
 # CONFIG_PACKAGE_lighttpd is not set
 # CONFIG_PACKAGE_nginx is not set
 # CONFIG_PACKAGE_nginx-all-module is not set
@@ -4829,7 +5156,7 @@ CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
 # CONFIG_PACKAGE_shadowsocks-libev-ss-tunnel is not set
 # CONFIG_PACKAGE_shadowsocksr-libev is not set
 CONFIG_PACKAGE_shadowsocksr-libev-alt=y
-# CONFIG_PACKAGE_shadowsocksr-libev-server is not set
+CONFIG_PACKAGE_shadowsocksr-libev-server=y
 # CONFIG_PACKAGE_shadowsocksr-libev-ssr-local is not set
 # CONFIG_PACKAGE_sockd is not set
 # CONFIG_PACKAGE_socksify is not set
@@ -4976,7 +5303,6 @@ CONFIG_PACKAGE_iw=y
 # CONFIG_PACKAGE_iw-full is not set
 # CONFIG_PACKAGE_jool is not set
 # CONFIG_PACKAGE_jool-tools is not set
-# CONFIG_PACKAGE_kcptun-client is not set
 # CONFIG_PACKAGE_keepalived is not set
 # CONFIG_PACKAGE_knxd is not set
 # CONFIG_PACKAGE_kplex is not set
@@ -4992,17 +5318,12 @@ CONFIG_PACKAGE_libipset=y
 # CONFIG_PACKAGE_mac-telnet-server is not set
 # CONFIG_PACKAGE_map is not set
 # CONFIG_PACKAGE_memcached is not set
+CONFIG_PACKAGE_microsocks=y
 # CONFIG_PACKAGE_mii-tool is not set
 # CONFIG_PACKAGE_mikrotik-btest is not set
 # CONFIG_PACKAGE_mini_snmpd is not set
 # CONFIG_PACKAGE_minimalist-pcproxy is not set
 # CONFIG_PACKAGE_modemmanager is not set
-
-#
-# Configuration
-#
-# CONFIG_MODEMMANAGER_WITH_MBIM is not set
-# CONFIG_MODEMMANAGER_WITH_QMI is not set
 # CONFIG_PACKAGE_mosquitto-client-nossl is not set
 # CONFIG_PACKAGE_mosquitto-client-ssl is not set
 # CONFIG_PACKAGE_mosquitto-nossl is not set
@@ -5056,6 +5377,7 @@ CONFIG_PACKAGE_ppp-mod-radius=y
 # CONFIG_PACKAGE_rssileds is not set
 # CONFIG_PACKAGE_rsyslog is not set
 # CONFIG_PACKAGE_samba36-client is not set
+# CONFIG_PACKAGE_samba36-hotplug is not set
 # CONFIG_PACKAGE_samba36-net is not set
 CONFIG_PACKAGE_samba36-server=y
 CONFIG_PACKAGE_SAMBA_MAX_DEBUG_LEVEL=-1
@@ -5079,7 +5401,6 @@ CONFIG_PACKAGE_simple-obfs=y
 # Simple-obfs Compile Configuration
 #
 # CONFIG_SIMPLE_OBFS_STATIC_LINK is not set
-CONFIG_PACKAGE_smartdns=y
 # CONFIG_PACKAGE_smartsnmpd is not set
 # CONFIG_PACKAGE_snmp-mibs is not set
 # CONFIG_PACKAGE_snmp-utils is not set
@@ -5102,7 +5423,7 @@ CONFIG_PACKAGE_smartdns=y
 CONFIG_PACKAGE_trojan=y
 # CONFIG_PACKAGE_u2pnpd is not set
 CONFIG_PACKAGE_uclient-fetch=y
-# CONFIG_PACKAGE_udpxy is not set
+CONFIG_PACKAGE_udpxy=y
 # CONFIG_PACKAGE_ulogd is not set
 CONFIG_PACKAGE_umbim=y
 # CONFIG_PACKAGE_umdns is not set
@@ -5274,6 +5595,7 @@ CONFIG_PACKAGE_btrfs-progs=y
 # CONFIG_PACKAGE_dumpe2fs is not set
 # CONFIG_PACKAGE_e2freefrag is not set
 CONFIG_PACKAGE_e2fsprogs=y
+# CONFIG_PACKAGE_e4crypt is not set
 # CONFIG_PACKAGE_f2fs-tools is not set
 # CONFIG_PACKAGE_f2fsck is not set
 # CONFIG_PACKAGE_filefrag is not set
@@ -5332,6 +5654,15 @@ CONFIG_PACKAGE_bash=y
 # CONFIG_PACKAGE_mksh is not set
 # CONFIG_PACKAGE_tcsh is not set
 # CONFIG_PACKAGE_zsh is not set
+
+#
+# Telephony
+#
+# CONFIG_PACKAGE_dahdi-cfg is not set
+# CONFIG_PACKAGE_dahdi-monitor is not set
+# CONFIG_PACKAGE_gsm-utils is not set
+# CONFIG_PACKAGE_sipgrep is not set
+# CONFIG_PACKAGE_sngrep is not set
 
 #
 # Terminal
@@ -5401,7 +5732,7 @@ CONFIG_PACKAGE_rrdtool1=y
 # CONFIG_PACKAGE_bspatch is not set
 # CONFIG_PACKAGE_cal is not set
 # CONFIG_PACKAGE_canutils is not set
-# CONFIG_PACKAGE_cgroupfs-mount is not set
+CONFIG_PACKAGE_cgroupfs-mount=y
 # CONFIG_PACKAGE_cmdpad is not set
 # CONFIG_PACKAGE_coap-client is not set
 CONFIG_PACKAGE_collectd=y
@@ -5472,7 +5803,7 @@ CONFIG_PACKAGE_collectd-mod-uptime=y
 CONFIG_PACKAGE_collectd-mod-wireless=y
 # CONFIG_PACKAGE_collectd-mod-write-graphite is not set
 # CONFIG_PACKAGE_collectd-mod-write-http is not set
-# CONFIG_PACKAGE_containerd is not set
+CONFIG_PACKAGE_containerd=y
 # CONFIG_CONTAINERD_SECCOMP is not set
 CONFIG_PACKAGE_coremark=y
 CONFIG_PACKAGE_coreutils=y
@@ -5586,7 +5917,27 @@ CONFIG_PACKAGE_dbus=y
 # CONFIG_PACKAGE_digitemp is not set
 # CONFIG_PACKAGE_digitemp-usb is not set
 # CONFIG_PACKAGE_dmesg is not set
-# CONFIG_PACKAGE_docker-ce is not set
+CONFIG_PACKAGE_docker-ce=y
+
+#
+# Kernel features for Docker
+#
+CONFIG_DOCKER_KERNEL_OPTIONS=y
+# CONFIG_DOCKER_SECCOMP is not set
+CONFIG_DOCKER_RES_SHAPE=y
+
+#
+# Network
+#
+# CONFIG_DOCKER_NET_OVERLAY is not set
+CONFIG_DOCKER_NET_MACVLAN=y
+# CONFIG_DOCKER_NET_TFTP is not set
+
+#
+# Storage
+#
+CONFIG_DOCKER_STO_EXT4=y
+# CONFIG_DOCKER_STO_BTRFS is not set
 # CONFIG_PACKAGE_dropbearconvert is not set
 # CONFIG_PACKAGE_dtc is not set
 # CONFIG_PACKAGE_dump1090 is not set
@@ -5607,6 +5958,7 @@ CONFIG_PACKAGE_dbus=y
 # CONFIG_PACKAGE_flock is not set
 # CONFIG_PACKAGE_fritz-caldata is not set
 # CONFIG_PACKAGE_fritz-tffs is not set
+# CONFIG_PACKAGE_fritz-tffs-nand is not set
 # CONFIG_PACKAGE_ftdi_eeprom is not set
 # CONFIG_PACKAGE_gammu is not set
 # CONFIG_PACKAGE_gawk is not set
@@ -5645,7 +5997,7 @@ CONFIG_PACKAGE_jshn=y
 # CONFIG_PACKAGE_less-wide is not set
 # CONFIG_PACKAGE_libimobiledevice-utils is not set
 CONFIG_PACKAGE_libjson-script=y
-# CONFIG_PACKAGE_libnetwork is not set
+CONFIG_PACKAGE_libnetwork=y
 # CONFIG_PACKAGE_libplist-utils is not set
 # CONFIG_PACKAGE_libsysrepo is not set
 # CONFIG_PACKAGE_libusbmuxd-utils is not set
@@ -5707,14 +6059,13 @@ CONFIG_PACKAGE_qmi-utils=y
 # CONFIG_PACKAGE_rtl-ais is not set
 # CONFIG_PACKAGE_rtl-sdr is not set
 # CONFIG_PACKAGE_rtl_433 is not set
-# CONFIG_PACKAGE_runc is not set
+CONFIG_PACKAGE_runc=y
 # CONFIG_RUNC_SECCOMP is not set
 # CONFIG_PACKAGE_sane-backends is not set
 # CONFIG_PACKAGE_sane-daemon is not set
 # CONFIG_PACKAGE_sane-frontends is not set
 # CONFIG_PACKAGE_setserial is not set
 # CONFIG_PACKAGE_shadow-utils is not set
-CONFIG_PACKAGE_shellsync=y
 # CONFIG_PACKAGE_sispmctl is not set
 # CONFIG_PACKAGE_slide-switch is not set
 # CONFIG_PACKAGE_smartd is not set
@@ -5725,8 +6076,9 @@ CONFIG_PACKAGE_shellsync=y
 # CONFIG_PACKAGE_spi-tools is not set
 # CONFIG_PACKAGE_spidev-test is not set
 # CONFIG_PACKAGE_strace is not set
-# CONFIG_PACKAGE_strace_libdw is not set
-# CONFIG_PACKAGE_strace_libunwind is not set
+CONFIG_STRACE_NONE=y
+# CONFIG_STRACE_LIBDW is not set
+# CONFIG_STRACE_LIBUNWIND is not set
 # CONFIG_PACKAGE_stress is not set
 # CONFIG_PACKAGE_sumo is not set
 # CONFIG_PACKAGE_sysrepo is not set
@@ -5735,7 +6087,7 @@ CONFIG_PACKAGE_shellsync=y
 # CONFIG_PACKAGE_sysstat is not set
 # CONFIG_PACKAGE_tar is not set
 # CONFIG_PACKAGE_taskwarrior is not set
-# CONFIG_PACKAGE_tini is not set
+CONFIG_PACKAGE_tini=y
 # CONFIG_PACKAGE_tracertools is not set
 # CONFIG_PACKAGE_tree is not set
 CONFIG_PACKAGE_triggerhappy=y
