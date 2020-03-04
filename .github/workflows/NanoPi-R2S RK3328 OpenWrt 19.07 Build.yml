@@ -55,39 +55,6 @@ jobs:
           sed -i 's/^src-git luci.*/src-git luci https:\/\/github.com\/coolsnowwolf\/luci/' feeds.conf.default
           sed -i 's/^src-git packages.*/src-git packages https:\/\/github.com\/coolsnowwolf\/packages/' feeds.conf.default
 
-      - name: Install Luci for Clash
-        run: |
-          cd friendlywrt-rk3328/friendlywrt/package
-          git clone https://github.com/frainzy1477/luci-app-clash
-
-      - name: Install OpenClash
-        run: |
-          git clone https://github.com/vernesong/OpenClash.git tmp
-          mv tmp/luci-app-openclash friendlywrt-rk3328/friendlywrt/package
-          rm -rf tmp
-
-      - name: Install Clash Binaries
-        run: |
-          mkdir -p friendlywrt-rk3328/friendlywrt/package/base-files/files/etc/clash
-          cd friendlywrt-rk3328/friendlywrt/package/base-files/files/etc/clash
-          wget https://github.com/Dreamacro/clash/releases/download/v0.18.0/clash-linux-armv8-v0.18.0.gz
-          gunzip clash-linux-armv8-v0.18.0.gz
-          chmod +x clash-linux-armv8-v0.18.0
-          mv clash-linux-armv8-v0.18.0 clash
-          mkdir ../openclash
-          cp clash ../openclash/
-
-      - name: Set Clash Version
-        run: |
-          mkdir -p friendlywrt-rk3328/friendlywrt/package/base-files/files/usr/share/clash
-          cd friendlywrt-rk3328/friendlywrt/package/base-files/files/usr/share/clash
-          echo 0.18.0 > core_version
-
-      - name: Install AdGuard Home
-        run: |
-          cd friendlywrt-rk3328/friendlywrt/package
-          git clone https://github.com/rufengsuixing/luci-app-adguardhome.git
-
       - name: Upgrade argon theme
         run: |
           cd friendlywrt-rk3328/friendlywrt/package
@@ -109,10 +76,9 @@ jobs:
         run: |
           cd friendlywrt-rk3328
           
-          #cp ../patches/31-usb_wifi friendlywrt/package/base-files/files/etc/hotplug.d/usb/31-usb_wifi
-
           rm -rf friendlywrt/package/network/config/firewall
           cp -r lede/package/network/config/firewall friendlywrt/package/network/config/
+          sed -i '/fullcone/d' friendlywrt/package/network/config/firewall/files/firewall.config
           sed -i '/CONFIG_NETFILTER_XT_TARGET_HMARK/i\CONFIG_NETFILTER_XT_TARGET_FULLCONENAT=m' kernel/arch/arm64/configs/nanopi-r2_linux_defconfig
           sed -i '/CONFIG_NETFILTER_XT_TARGET_IDLETIMER/a\obj-$(CONFIG_NETFILTER_XT_TARGET_FULLCONENAT) += xt_FULLCONENAT.o' kernel/net/netfilter/Makefile
           cp ../xt_FULLCONENAT/xt_FULLCONENAT.c kernel/net/netfilter/xt_FULLCONENAT.c
@@ -120,7 +86,7 @@ jobs:
           cp ../xt_FULLCONENAT/netfilter.Kconfig kernel/net/netfilter/Kconfig
 
           sed -i '/CONFIG_IB/d;/CONFIG_SDK/d;/CONFIG_BUILDBOT/d;/CONFIG_ALL_KMODS/d;/CONFIG_ALL_NONSHARED/d' configs/config_rk3328
-          sed -i '/docker/Id;/CONFIG_DISPLAY_SUPPORT/d;/CONFIG_AUDIO_SUPPORT/d' configs/config_rk3328
+          sed -i '/CONFIG_DISPLAY_SUPPORT/d;/CONFIG_AUDIO_SUPPORT/d' configs/config_rk3328
 
           sed -i '/Load Average/i\\t\t<tr><td width="33%"><%:CPU Temperature%></td><td><%=luci.sys.exec("cut -c1-2 /sys/class/thermal/thermal_zone0/temp")%></td></tr>' friendlywrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
           sed -i 's/pcdata(boardinfo.system or "?")/"ARMv8"/' friendlywrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm
